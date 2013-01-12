@@ -1,10 +1,12 @@
 #ifndef __CHARACTERFACTORY_H__
 #define __CHARACTERFACTORY_H__
 
+#include <iostream>
 #include <string>
 #include "Character.hpp"
 #include "CPosition.hpp"
-#include <iostream>
+#include "CSprite.hpp"
+
 
 /**
  ** Factory which initialize a character and all its components.

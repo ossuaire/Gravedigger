@@ -12,8 +12,13 @@ Character * CharacterFactory::get(const std::string name) {
 
   if (name.compare("Gravedigger")==0) { // Instance of Gravedigger required
     character = new Character(std::string("Gravedigger"));
-    CComponent * position= new CPosition(100,100);
+    CComponent * position = new CPosition(character,100,100);
+    CComponent * sprite =
+      new CSprite(character,
+		  std::string("material/img/chara-design/gravedigger.png"),
+		  3.0);
     character->addComponent(std::string("Position"),position);
+    character->addComponent(std::string("Sprite"),sprite);
   }
   
   return character;

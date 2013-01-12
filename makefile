@@ -5,7 +5,7 @@ SOURCE=./src/
 
 INCPATH= -I$(SOURCE)
 LIBS= -lsfml-window -lsfml-graphics
-DEP= CharacterFactory.o Character.o CPosition.o CComponent.o main.o
+DEP= CComponent.o Character.o CSprite.o CPosition.o CharacterFactory.o main.o
 
 all: $(EXEC)
 

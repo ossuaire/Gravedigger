@@ -6,6 +6,8 @@
 #include <map>
 #include "CComponent.hpp"
 
+class CComponent;
+
 class Character {
 
 private:

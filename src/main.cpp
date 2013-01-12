@@ -22,7 +22,9 @@ int main()
       }
     }
     
-    //window.draw(gd.gravediggerSprite );
+    CSprite * sprite = (CSprite *) gravedigger->getComponent("Sprite");
+    sprite->updatePosition();
+    window.draw(sprite->getSprite() );
     window.display();
     window.clear(); // not sure why i do dat
   }

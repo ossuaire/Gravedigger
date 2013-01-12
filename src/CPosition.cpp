@@ -1,6 +1,6 @@
 #include "CPosition.hpp"
 
-CPosition::CPosition(int _x, int _y) {
+CPosition::CPosition(Character * parent, int _x, int _y) : CComponent(parent) {
   setX(_x);
   setY(_y);
 }

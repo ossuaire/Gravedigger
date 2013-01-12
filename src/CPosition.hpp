@@ -3,6 +3,8 @@
 
 #include "CComponent.hpp"
 
+class Character;
+
 class CPosition : public CComponent {
 
 private:
@@ -12,7 +14,7 @@ private:
 
 public:
 
-  CPosition(int _x,int _y);
+  CPosition(Character * parent,int _x,int _y);
 
   int getX();
   int getY();
