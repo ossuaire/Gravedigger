@@ -8,17 +8,30 @@ using namespace std;
 int main()
 {
   sf::RenderWindow window(sf::VideoMode(800, 600), "Gravedigger");
-  //std::cout << "Dat iz a tasty burger" << std::endl;
+  window.setFramerateLimit(60);
 
   CharacterFactory cf;
   Character * gravedigger = cf.get("Gravedigger");
 
   while (window.isOpen()) {
     sf::Event event;
+    sf::Clock clock;
 
     while (window.pollEvent(event)) {
       if (event.type == sf::Event::Closed) {
 	window.close();
+      }
+      if ((event.type == sf::Event::KeyPressed) &&
+	  (event.key.code == sf::Keyboard::D)) { // right
+	CPosition * position = (CPosition*)
+	  gravedigger->getComponent("Position");
+	position->setX(position->getX() + 10);
+      }
+      if ((event.type == sf::Event::KeyPressed) &&
+	  (event.key.code == sf::Keyboard::Q)) { // right
+	CPosition * position = (CPosition*)
+	  gravedigger->getComponent("Position");
+	position->setX(position->getX()- 10);
       }
     }
     
