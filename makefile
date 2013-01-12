@@ -5,7 +5,7 @@ SOURCE=./src/
 
 INCPATH= -I$(SOURCE)
 LIBS= -lsfml-window -lsfml-graphics
-DEP= Gravedigger.o main.o
+DEP= CharacterFactory.o Character.o CPosition.o CComponent.o main.o
 
 all: $(EXEC)
 

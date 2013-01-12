@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Window.hpp>
-#include "Gravedigger.hpp"
+#include <SFML/Graphics.hpp>
+#include "CharacterFactory.hpp"
 
 using namespace std;
 
@@ -9,7 +10,8 @@ int main()
   sf::RenderWindow window(sf::VideoMode(800, 600), "Gravedigger");
   //std::cout << "Dat iz a tasty burger" << std::endl;
 
-  Gravedigger gd;
+  CharacterFactory cf;
+  Character * gravedigger = cf.get("Gravedigger");
 
   while (window.isOpen()) {
     sf::Event event;
@@ -20,7 +22,7 @@ int main()
       }
     }
     
-    window.draw(gd.gravediggerSprite );
+    //window.draw(gd.gravediggerSprite );
     window.display();
     window.clear(); // not sure why i do dat
   }

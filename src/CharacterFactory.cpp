@@ -1,0 +1,21 @@
+#include "CharacterFactory.hpp"
+
+CharacterFactory::CharacterFactory() {
+  // Nothing yet
+}
+
+/**
+ ** Names must be set as it were class Name
+ **/
+Character * CharacterFactory::get(const std::string name) {
+  Character * character;
+
+  if (name.compare("Gravedigger")==0) { // Instance of Gravedigger required
+    character = new Character(std::string("Gravedigger"));
+    CComponent * position= new CPosition(100,100);
+    character->addComponent(std::string("Position"),position);
+  }
+  
+  return character;
+
+}
