@@ -12,6 +12,8 @@ int main()
 
   CharacterFactory cf;
   Character * gravedigger = cf.get("Gravedigger");
+  CSprite * sprite = (CSprite *) gravedigger->getComponent("Sprite");
+  sprite->updatePosition();
 
   while (window.isOpen()) {
     sf::Event event;
@@ -26,17 +28,17 @@ int main()
 	CPosition * position = (CPosition*)
 	  gravedigger->getComponent("Position");
 	position->setX(position->getX() + 10);
+	sprite->updatePosition();
       }
       if ((event.type == sf::Event::KeyPressed) &&
 	  (event.key.code == sf::Keyboard::Q)) { // right
 	CPosition * position = (CPosition*)
 	  gravedigger->getComponent("Position");
 	position->setX(position->getX()- 10);
+	sprite->updatePosition();
       }
     }
     
-    CSprite * sprite = (CSprite *) gravedigger->getComponent("Sprite");
-    sprite->updatePosition();
     window.draw(sprite->getSprite() );
     window.display();
     window.clear(); // not sure why i do dat

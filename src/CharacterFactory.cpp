@@ -17,8 +17,10 @@ Character * CharacterFactory::get(const std::string name) {
       new CSprite(character,
 		  std::string("material/img/chara-design/gravedigger.png"),
 		  3.0);
+    CComponent * speed = new CSpeed(character);
     character->addComponent(std::string("Position"),position);
     character->addComponent(std::string("Sprite"),sprite);
+    character->addComponent(std::string("Speed"),speed);
   }
   
   return character;

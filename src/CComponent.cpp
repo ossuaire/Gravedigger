@@ -1,4 +1,9 @@
 #include "CComponent.hpp"
 
-// Only to work wiz makefilz
-// CLazz iz abztract
+CComponent::CComponent(Character * _parent){
+  parent = _parent;
+}
+
+CComponent::~CComponent(){
+}
+

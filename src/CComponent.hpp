@@ -11,10 +11,8 @@ private:
 
 public:
 
-  // Abstract class
-
-  CComponent(Character * _parent){parent= _parent;}
-  ~CComponent(){}
+  CComponent(Character * _parent);
+  ~CComponent();
   
   Character * parent;
 
