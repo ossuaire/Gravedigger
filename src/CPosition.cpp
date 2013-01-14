@@ -16,8 +16,16 @@ int CPosition::getY() {
 
 void CPosition::setX(int _x) {
   x = _x;
+  CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
+  if ( sprite != NULL ) {
+    sprite->updatePosition();
+  }
 }
 
 void CPosition::setY(int _y) {
   y = _y;
+  CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
+  if ( sprite != NULL ) {
+    sprite->updatePosition();
+  }
 }

@@ -2,7 +2,8 @@
 
 CSprite::CSprite(Character * parent,
 		 const std::string texturePath,
-		 const float _scale) : CComponent(parent) {
+		 const float _scale,
+		 const float _angle) : CComponent(parent) {
   if (!texture.loadFromFile(texturePath)) {
     std::cout << "Error while loading Sprite, path" + texturePath << std::endl;
   } 
@@ -32,6 +33,15 @@ void CSprite::setSprite(const std::string texturePath) {
 void CSprite::setScale(const float _scale) {
   scale = _scale;
   sprite.setScale(_scale,_scale);
+}
+
+void CSprite::setDirection(const std::string direction) {
+  if (direction.compare("left")==0) {
+      sprite.setScale(-scale,scale);    
+  }
+  if (direction.compare("right")==0) {
+    sprite.setScale(scale,scale);
+  }
 }
 
 // Call diz function implies an existing CPosition component

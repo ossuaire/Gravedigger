@@ -28,17 +28,16 @@ int main()
 	CPosition * position = (CPosition*)
 	  gravedigger->getComponent("Position");
 	position->setX(position->getX() + 10);
-	sprite->updatePosition();
+	sprite->setDirection("right");
       }
       if ((event.type == sf::Event::KeyPressed) &&
 	  (event.key.code == sf::Keyboard::Q)) { // right
 	CPosition * position = (CPosition*)
 	  gravedigger->getComponent("Position");
 	position->setX(position->getX()- 10);
-	sprite->updatePosition();
+	sprite->setDirection("left");
       }
     }
-    
     window.draw(sprite->getSprite() );
     window.display();
     window.clear(); // not sure why i do dat

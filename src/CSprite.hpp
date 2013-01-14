@@ -22,13 +22,15 @@ public:
   
   CSprite(Character * parent,
 	  const std::string texturePath,
-	  const float _scale=1.0);
+	  const float _scale=1.0,
+	  const float _angle=0.0); // left by default
   
   sf::Sprite getSprite();
   float getScale();
 
   void setSprite(const std::string texturePath);
   void setScale(const float _scale);
+  void setDirection(const std::string direction);
 
   void updatePosition();
 
