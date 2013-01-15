@@ -49,3 +49,12 @@ void CSprite::updatePosition() {
   CPosition * position =(CPosition *) parent->getComponent("Position");
   sprite.setPosition( position->getX() , position->getY());
 }
+
+void CSprite::updateSubSprite(const int left,
+			     const int top,
+			     const int width,
+			     const int height) {
+  sf::IntRect rectangle(left,top,width,height);
+  sprite.setTextureRect(rectangle);
+}
+

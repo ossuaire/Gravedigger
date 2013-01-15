@@ -34,6 +34,11 @@ public:
 
   void updatePosition();
 
+  void updateSubSprite(const int left,
+		       const int top,
+		       const int width,
+		       const int height);
+
 };
 
 #endif
