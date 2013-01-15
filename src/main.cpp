@@ -25,17 +25,27 @@ int main()
       }
       if ((event.type == sf::Event::KeyPressed) &&
 	  (event.key.code == sf::Keyboard::D)) { // right
+	// Moving State
 	CPosition * position = (CPosition*)
 	  gravedigger->getComponent("Position");
-	position->setX(position->getX() + 3);
+	position->setX(position->getX() + 10);
 	sprite->setDirection("right");
       }
+      if ((event.type == sf::Event::KeyReleased) &&
+	  (event.key.code == sf::Keyboard::D)) {
+	// Stopping state
+      }
+      
       if ((event.type == sf::Event::KeyPressed) &&
 	  (event.key.code == sf::Keyboard::Q)) { // right
+	// Moving State
 	CPosition * position = (CPosition*)
 	  gravedigger->getComponent("Position");
-	position->setX(position->getX()- 3);
+	position->setX(position->getX()- 10);
 	sprite->setDirection("left");
+      }
+      if ((event.type == sf::Event::KeyReleased) &&
+	  (event.key.code == sf::Keyboard::Q)) {
       }
     }
     window.draw(sprite->getSprite() );
@@ -43,6 +53,6 @@ int main()
     window.clear(); // not sure why i do dat
   }
 
-  return 0;
+return 0;
 }
 

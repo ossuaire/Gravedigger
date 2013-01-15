@@ -19,9 +19,11 @@ Character * CharacterFactory::get(const std::string name) {
 		  2.0);
     ((CSprite *) sprite)->updateSubSprite(18,14,21,19); // TODO: Rework on it
     CComponent * speed = new CSpeed(character);
+    CComponent * acceleration = new CAcceleration(character);
     character->addComponent(std::string("Position"),position);
     character->addComponent(std::string("Sprite"),sprite);
     character->addComponent(std::string("Speed"),speed);
+    character->addComponent(std::string("Acceleration"),acceleration);
   }
   
   return character;

@@ -7,6 +7,7 @@
 #include "CPosition.hpp"
 #include "CSprite.hpp"
 #include "CSpeed.hpp"
+#include "CAcceleration.hpp"
 
 /**
  ** Factory which initialize a character and all its components.
