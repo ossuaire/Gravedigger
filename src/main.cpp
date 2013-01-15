@@ -27,14 +27,14 @@ int main()
 	  (event.key.code == sf::Keyboard::D)) { // right
 	CPosition * position = (CPosition*)
 	  gravedigger->getComponent("Position");
-	position->setX(position->getX() + 10);
+	position->setX(position->getX() + 3);
 	sprite->setDirection("right");
       }
       if ((event.type == sf::Event::KeyPressed) &&
 	  (event.key.code == sf::Keyboard::Q)) { // right
 	CPosition * position = (CPosition*)
 	  gravedigger->getComponent("Position");
-	position->setX(position->getX()- 10);
+	position->setX(position->getX()- 3);
 	sprite->setDirection("left");
       }
     }

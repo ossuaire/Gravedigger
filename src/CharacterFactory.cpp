@@ -16,7 +16,7 @@ Character * CharacterFactory::get(const std::string name) {
     CComponent * sprite =
       new CSprite(character,
 		  std::string("material/img/chara-design/gravedigger.png"),
-		  3.0);
+		  2.0);
     ((CSprite *) sprite)->updateSubSprite(18,14,21,19); // TODO: Rework on it
     CComponent * speed = new CSpeed(character);
     character->addComponent(std::string("Position"),position);

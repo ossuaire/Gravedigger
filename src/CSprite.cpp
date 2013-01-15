@@ -56,5 +56,6 @@ void CSprite::updateSubSprite(const int left,
 			     const int height) {
   sf::IntRect rectangle(left,top,width,height);
   sprite.setTextureRect(rectangle);
+  sprite.setOrigin(width/2,top);
 }
 
