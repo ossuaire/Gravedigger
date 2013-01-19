@@ -2,6 +2,9 @@
 #define __CSTATE_H__
 
 #include "CComponent.hpp"
+#include "AAnimation.hpp"
+#include <string>
+#include <map>
 
 class Character;
 
@@ -9,22 +12,30 @@ class CState: public CComponent {
 
 private:
 
-  // List of states possible
-  // List of state=>animation???
-  // animation = list of sprite and condition on it?
+  std::map<std::string, AAnimation*> animations;
 
-  // counter ?
-  // +framerate?
+  std::string state;
+  
+  sf::Int32 elapsedSum; // unit: ms
+  sf::Int32 moduloTime; // unit: ms
+  
+  void setElapsedSum(const sf::Int32 _elapsedSum);
 
 public:
 
-  CState(Character* parent);
+  CState(Character* parent,const sf::Int32 _moduloTime);
 
-  //setState
+  std::string getState();
+  sf::Int32 getElapsedSum();
+  sf::Int32 getModuloTime();
+  AAnimation * getAAnimation(const std::string  name);
 
-  //getState
+  void setState(const std::string _state);
+  void setModuloTime(const sf::Int32 _moduloTime);
+  void addAAnimation(AAnimation * animation);
+  void delAAnimation(const std::string  name);
 
-  //update();
+  void update(sf::Int32 elapsed);
 };
 
 

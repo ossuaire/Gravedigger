@@ -48,6 +48,8 @@ int main()
 	  (event.key.code == sf::Keyboard::Q)) {
       }
     }
+    sf::Time elapsed = clock.restart();
+
     window.draw(sprite->getSprite() );
     window.display();
     window.clear(); // not sure why i do dat
