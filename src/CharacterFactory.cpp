@@ -24,6 +24,20 @@ Character * CharacterFactory::get(const std::string name) {
     character->addComponent(std::string("Sprite"),sprite);
     character->addComponent(std::string("Speed"),speed);
     character->addComponent(std::string("Acceleration"),acceleration);
+    
+    // Creating states
+    sf::Time oneSec = sf::seconds(1.0);
+    sf::Int32 thousandMillisec = oneSec.asMilliseconds(); 
+    CState * state = new CState(character, thousandMillisec);
+    AStand * stand = new AStand(character, thousandMillisec);
+    ALeft  * left  = new ALeft (character, thousandMillisec);
+    ARight * right = new ARight(character, thousandMillisec);
+    state->addAnimation(std::string("Stand"),stand);
+    state->addAnimation(std::string("Left"),  left);
+    state->addAnimation(std::string("Right"),right);
+    
+    character->addComponent(std::string("State"),state);
+    state->setState("Stand");
   }
   
   return character;

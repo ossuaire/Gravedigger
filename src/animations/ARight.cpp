@@ -4,7 +4,7 @@ ARight::ARight(Character * _parent,
 	     const sf::Int32 _moduloTime) : AAnimation(_parent,_moduloTime) {
 }
 
-void ARight::update(const sf::Int32 elapsed) {
+void ARight::execute(const sf::Int32 elapsed) {
   // TODO: Verif' they are existing components
   // #1 get all components
   CAcceleration * acceleration;

@@ -17,7 +17,7 @@ public:
 
   AStand(Character * _parent,const sf::Int32 _moduloTime);
 
-  void update(const sf::Int32 elapsed);
+  void execute(const sf::Int32 elapsed);
 };
 
 #endif

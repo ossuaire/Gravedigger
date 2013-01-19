@@ -13,6 +13,7 @@ int main()
   CharacterFactory cf;
   Character * gravedigger = cf.get("Gravedigger");
   CSprite * sprite = (CSprite *) gravedigger->getComponent("Sprite");
+  CState * state = (CState*) gravedigger->getComponent("State");
   sprite->updatePosition();
 
   while (window.isOpen()) {
@@ -25,30 +26,23 @@ int main()
       }
       if ((event.type == sf::Event::KeyPressed) &&
 	  (event.key.code == sf::Keyboard::D)) { // right
-	// Moving State
-	CPosition * position = (CPosition*)
-	  gravedigger->getComponent("Position");
-	position->setX(position->getX() + 10);
-	sprite->setDirection("right");
+	state->setState("Right");
+	sprite->setDirection("right"); // TODO change it in animations
       }
       if ((event.type == sf::Event::KeyReleased) &&
-	  (event.key.code == sf::Keyboard::D)) {
-	// Stopping state
+	  ((event.key.code == sf::Keyboard::D) ||
+	   (event.key.code == sf::Keyboard::Q))) { // stop
+	state->setState("Stand");
       }
-      
       if ((event.type == sf::Event::KeyPressed) &&
-	  (event.key.code == sf::Keyboard::Q)) { // right
-	// Moving State
-	CPosition * position = (CPosition*)
-	  gravedigger->getComponent("Position");
-	position->setX(position->getX()- 10);
+	  (event.key.code == sf::Keyboard::Q)) { // left
+	state->setState("Left");
 	sprite->setDirection("left");
-      }
-      if ((event.type == sf::Event::KeyReleased) &&
-	  (event.key.code == sf::Keyboard::Q)) {
       }
     }
     sf::Time elapsed = clock.restart();
+
+    state->update(elapsed.asMilliseconds());
 
     window.draw(sprite->getSprite() );
     window.display();

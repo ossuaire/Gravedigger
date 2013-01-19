@@ -4,7 +4,7 @@ AStand::AStand(Character * _parent,
 	     const sf::Int32 _moduloTime) : AAnimation(_parent,_moduloTime) {
 }
 
-void AStand::update(const sf::Int32 elapsed) {
+void AStand::execute(const sf::Int32 elapsed) {
   // TODO: Verif' they are existing components
   // #1 get all components
   CSpeed * speed;

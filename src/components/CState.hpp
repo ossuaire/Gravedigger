@@ -28,12 +28,12 @@ public:
   std::string getState();
   sf::Int32 getElapsedSum();
   sf::Int32 getModuloTime();
-  AAnimation * getAAnimation(const std::string  name);
+  AAnimation * getAnimation(const std::string  name);
 
   void setState(const std::string _state);
   void setModuloTime(const sf::Int32 _moduloTime);
-  void addAAnimation(AAnimation * animation);
-  void delAAnimation(const std::string  name);
+  void addAnimation(const std::string name, AAnimation * animation);
+  void delAnimation(const std::string  name);
 
   void update(sf::Int32 elapsed);
 };
