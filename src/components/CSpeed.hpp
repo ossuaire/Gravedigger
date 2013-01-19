@@ -1,6 +1,7 @@
 #ifndef __CSPEED_H__
 #define __CSPEED_H__
 
+#include <algorithm>
 #include "CComponent.hpp"
 
 class Character;

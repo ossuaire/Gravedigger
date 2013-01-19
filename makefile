@@ -5,7 +5,7 @@ SOURCE=./src/
 
 INCPATH= -I$(SOURCE) -I$(SOURCE)animations/ -I$(SOURCE)components/
 LIBS= -lsfml-window -lsfml-graphics -lsfml-system
-DEP= CComponent.o Character.o  CSprite.o CPosition.o CSpeed.o CAcceleration.o CharacterFactory.o AAnimation.o CState.o main.o
+DEP= CComponent.o Character.o  CSprite.o CPosition.o CSpeed.o CAcceleration.o CharacterFactory.o AAnimation.o ALeft.o ARight.o AStand.o CState.o main.o
 
 all: $(EXEC)
 
@@ -23,6 +23,8 @@ $(EXEC): $(DEP)
 
 clear:
 	rm -f  *~
-	rm -f $(SUBFLODERS)*~
+	rm -f $(SOURCE)*~
+	rm -f $(SOURCE)components/*~
+	rm -f $(SOURCE)animations/*~
 	rm -f $(OBJECT)*.o
 	rm -f $(EXEC)

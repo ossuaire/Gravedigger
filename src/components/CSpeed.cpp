@@ -28,11 +28,15 @@ float CSpeed::getVSpeedMax() {
 }
 
 void CSpeed::setHSpeed(const float _hSpeed) {
-  hSpeed = _hSpeed;
+  ( _hSpeed > 0 ) ? 
+    hSpeed = std::min(_hSpeed,hSpeedMax):
+    hSpeed = std::max(_hSpeed,-hSpeedMax);
 }
 
 void CSpeed::setVSpeed(const float _vSpeed) {
-  vSpeed = _vSpeed;
+  ( _vSpeed > 0) ?
+    vSpeed = std::min(_vSpeed,vSpeedMax):
+    vSpeed = std::max(_vSpeed,-vSpeedMax);
 }
 
 void CSpeed::setHSpeedMax(const float _hSpeedMax) {
