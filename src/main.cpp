@@ -30,8 +30,11 @@ int main()
 	sprite->setDirection("right"); // TODO change it in animations
       }
       if ((event.type == sf::Event::KeyReleased) &&
-	  ((event.key.code == sf::Keyboard::D) ||
-	   (event.key.code == sf::Keyboard::Q))) { // stop
+	  (event.key.code == sf::Keyboard::D)) {
+	state->setState("Stand");
+      }
+      if ((event.type == sf::Event::KeyReleased) &&
+	  (event.key.code == sf::Keyboard::Q)) { // stop
 	state->setState("Stand");
       }
       if ((event.type == sf::Event::KeyPressed) &&

@@ -1,7 +1,7 @@
 #include "AStand.hpp"
 
 AStand::AStand(Character * _parent,
-	     const sf::Int32 _moduloTime) : AAnimation(_parent,_moduloTime) {
+	       const sf::Int32 _moduloTime) : AAnimation(_parent,_moduloTime) {
 }
 
 void AStand::execute(const sf::Int32 elapsed) {
@@ -9,14 +9,14 @@ void AStand::execute(const sf::Int32 elapsed) {
   // #1 get all components
   CSpeed * speed;
   speed = (CSpeed *) parent->getComponent("Speed");
-  if ((float) std::abs(speed->getHSpeed()) > 1.0) {
+  if ((float) std::abs(speed->getHSpeed()) > 0.3) {
     CAcceleration * acceleration;
     acceleration = (CAcceleration *) parent->getComponent("Acceleration");
     CPosition * position;
     position = (CPosition *) parent->getComponent("Position");
   
     // #2 add value
-    speed->setHSpeed((speed->getHSpeed())/2);
+    speed->setHSpeed((speed->getHSpeed())-((float)(speed->getHSpeed())/8.0));
     position->setX((position->getX())+(speed->getHSpeed()));
   } else {
     speed->setHSpeed(0.0);
