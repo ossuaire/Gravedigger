@@ -1,9 +1,9 @@
 #ifndef __CCOMPONENT_H__
 #define __CCOMPONENT_H__
 
-#include "Character.hpp"
+#include "GameObject.hpp"
 
-class Character;
+class GameObject;
 
 class CComponent {
 
@@ -11,10 +11,10 @@ private:
 
 public:
 
-  CComponent(Character * _parent);
+  CComponent(GameObject * _parent);
   ~CComponent();
   
-  Character * parent;
+  GameObject * parent;
 
 };
 

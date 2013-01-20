@@ -1,6 +1,6 @@
 #include "CSpeed.hpp"
 
-CSpeed::CSpeed( Character* _parent,
+CSpeed::CSpeed( GameObject* _parent,
 		const float _hSpeed,
 		const float _vSpeed,
 		const float _hSpeedMax,

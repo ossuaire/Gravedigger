@@ -1,7 +1,7 @@
 #include "CAcceleration.hpp"
 
 
-CAcceleration::CAcceleration(Character* _parent,
+CAcceleration::CAcceleration(GameObject* _parent,
 			     const float _hAcceleration,
 			     const float _vAcceleration): CComponent(_parent) {
   setHAcceleration(_hAcceleration);

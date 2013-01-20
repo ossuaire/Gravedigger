@@ -6,7 +6,7 @@
 #include <string>
 #include <map>
 
-class Character;
+class GameObject;
 
 class CState: public CComponent {
 
@@ -23,7 +23,7 @@ private:
 
 public:
 
-  CState(Character* parent,const sf::Int32 _moduloTime);
+  CState(GameObject* parent,const sf::Int32 _moduloTime);
 
   std::string getState();
   sf::Int32 getElapsedSum();

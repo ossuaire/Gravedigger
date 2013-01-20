@@ -4,7 +4,7 @@
 #include "CComponent.hpp"
 #include "CSprite.hpp"
 
-class Character;
+class GameObject;
 
 class CPosition : public CComponent {
 
@@ -15,7 +15,7 @@ private:
 
 public:
 
-  CPosition(Character * parent,int _x,int _y);
+  CPosition(GameObject * parent,int _x,int _y);
 
   int getX();
   int getY();

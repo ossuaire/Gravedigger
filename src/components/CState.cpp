@@ -1,7 +1,7 @@
 #include "CState.hpp"
 
 
-CState::CState(Character* _parent,
+CState::CState(GameObject* _parent,
 	       const sf::Int32 _moduloTime): CComponent(_parent) {
   moduloTime = _moduloTime;
 }

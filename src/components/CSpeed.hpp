@@ -4,7 +4,7 @@
 #include <algorithm>
 #include "CComponent.hpp"
 
-class Character;
+class GameObject;
 
 class CSpeed : public CComponent {
 
@@ -20,7 +20,7 @@ private:
 
 public:
 
-  CSpeed(Character * _parent,
+  CSpeed(GameObject * _parent,
 	 const float _hSpeed=0.0,
 	 const float _vSpeed=0.0,
 	 const float _hSpeedMax=10.0,

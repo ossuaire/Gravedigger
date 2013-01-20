@@ -3,7 +3,7 @@
 
 #include "CComponent.hpp"
 
-class Character;
+class GameObject;
 
 class CAcceleration : public CComponent {
 
@@ -15,7 +15,7 @@ private:
 
 public:
 
-  CAcceleration(Character* _parent,
+  CAcceleration(GameObject* _parent,
 		const float _hAcceleration=0.1,
 		const float _vAcceleration=0.1);
 

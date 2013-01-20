@@ -1,6 +1,6 @@
 #include "CSprite.hpp"
 
-CSprite::CSprite(Character * parent,
+CSprite::CSprite(GameObject * parent,
 		 const std::string texturePath,
 		 const float _scale,
 		 const float _angle) : CComponent(parent) {

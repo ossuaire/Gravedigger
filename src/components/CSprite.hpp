@@ -7,7 +7,7 @@
 #include "CComponent.hpp"
 #include "CPosition.hpp"
 
-class Character;
+class GameObject;
 
 class CSprite : public CComponent {
 
@@ -20,7 +20,7 @@ private:
 
 public:
   
-  CSprite(Character * parent,
+  CSprite(GameObject * parent,
 	  const std::string texturePath,
 	  const float _scale=1.0,
 	  const float _angle=0.0); // left by default

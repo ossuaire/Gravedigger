@@ -1,6 +1,6 @@
 #include "CComponent.hpp"
 
-CComponent::CComponent(Character * _parent){
+CComponent::CComponent(GameObject * _parent){
   parent = _parent;
 }
 
