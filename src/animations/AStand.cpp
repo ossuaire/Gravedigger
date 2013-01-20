@@ -9,7 +9,7 @@ void AStand::execute(const sf::Int32 elapsed) {
   // #1 get all components
   CSpeed * speed;
   speed = (CSpeed *) parent->getComponent("Speed");
-  if ((float) std::abs(speed->getHSpeed()) > 0.3) {
+  if ((float) std::abs(speed->getHSpeed()) > 1.2) {
     CAcceleration * acceleration;
     acceleration = (CAcceleration *) parent->getComponent("Acceleration");
     CPosition * position;

@@ -14,7 +14,7 @@ void ALeft::execute(const sf::Int32 elapsed) {
   CPosition * position;
   position = (CPosition *) parent->getComponent("Position");
 
-  if (speed->getHSpeed() > 0.3) {
+  if (speed->getHSpeed() > 1.2) {
     // #2a go back to 0
     speed->setHSpeed((speed->getHSpeed())-((float)(speed->getHSpeed())/8.0));
     position->setX((position->getX())+(speed->getHSpeed()));
