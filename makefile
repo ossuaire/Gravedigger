@@ -5,7 +5,7 @@ SOURCE=./src/
 
 INCPATH= -I$(SOURCE) -I$(SOURCE)animations/ -I$(SOURCE)components/
 LIBS= -lsfml-window -lsfml-graphics -lsfml-system
-DEP= CComponent.o Character.o  CSprite.o CPosition.o CSpeed.o CAcceleration.o CharacterFactory.o AAnimation.o ALeft.o ARight.o AStand.o CState.o main.o
+DEP= CComponent.o GameObject.o Character.o Environment.o CSprite.o CPosition.o CSpeed.o CAcceleration.o CharacterFactory.o EnvironmentFactory.o AAnimation.o ALeft.o ARight.o AStand.o CState.o main.o
 
 all: $(EXEC)
 

@@ -18,6 +18,8 @@ private:
 
   float scale;
 
+  sf::IntRect boundingBox;
+
 public:
   
   CSprite(GameObject * parent,
