@@ -2,12 +2,14 @@
 
 CSprite::CSprite(GameObject * parent,
 		 const std::string texturePath,
+		 const sf::IntRect area,
 		 const float _scale,
-		 const float _angle) : CComponent(parent) {
+		 const bool _isRepeated) : CComponent(parent) {
+  texture.create(area.width,area.height);
+  texture.setRepeated(_isRepeated);
   if (!texture.loadFromFile(texturePath)) {
     std::cout << "Error while loading Sprite, path" + texturePath << std::endl;
   } 
-
   setScale(_scale);
 
   sprite.setTexture(texture);
@@ -22,7 +24,7 @@ float CSprite::getScale() {
   return scale;
 }
 
-void CSprite::setSprite(const std::string texturePath) {
+void CSprite::setSprite(const std::string texturePath,const sf::IntRect area) {
   if (!texture.loadFromFile(texturePath)) {
     std::cout << "Error while loading Sprite, path" + texturePath << std::endl;
   } 

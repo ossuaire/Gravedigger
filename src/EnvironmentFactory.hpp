@@ -3,6 +3,8 @@
 
 #include <string>
 #include "Environment.hpp"
+#include "CPosition.hpp"
+#include "CSprite.hpp"
 
 class EnvironmentFactory {
 

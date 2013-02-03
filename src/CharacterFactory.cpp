@@ -12,10 +12,11 @@ Character * CharacterFactory::get(const std::string name) {
 
   if (name.compare("Gravedigger")==0) { // Instance of Gravedigger required
     character = new Character(std::string("Gravedigger"));
-    CComponent * position = new CPosition(character,100,100);
+    CComponent * position = new CPosition(character,100,200);
     CComponent * sprite =
       new CSprite(character,
 		  std::string("material/img/chara-design/gravedigger.png"),
+		  sf::IntRect(0,0,21,19),
 		  2.0);
     ((CSprite *) sprite)->updateSubSprite(18,14,21,19); // TODO: Rework on it
     CComponent * speed = new CSpeed(character);

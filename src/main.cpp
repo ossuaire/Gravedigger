@@ -2,6 +2,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include "CharacterFactory.hpp"
+#include "EnvironmentFactory.hpp"
 
 using namespace std;
 
@@ -15,6 +16,11 @@ int main()
   CSprite * sprite = (CSprite *) gravedigger->getComponent("Sprite");
   CState * state = (CState*) gravedigger->getComponent("State");
   sprite->updatePosition();
+
+  EnvironmentFactory ef;
+  Environment * floor = ef.get("Floor");
+  CSprite * fsprite = (CSprite *) floor->getComponent("Sprite");
+  fsprite->updatePosition();
 
   while (window.isOpen()) {
     sf::Event event;
@@ -48,6 +54,7 @@ int main()
     state->update(elapsed.asMilliseconds());
 
     window.draw(sprite->getSprite() );
+    window.draw(fsprite->getSprite());
     window.display();
     window.clear(); // not sure why i do dat
   }

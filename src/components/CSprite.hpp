@@ -24,13 +24,14 @@ public:
   
   CSprite(GameObject * parent,
 	  const std::string texturePath,
+	  const sf::IntRect area,
 	  const float _scale=1.0,
-	  const float _angle=0.0); // left by default
+	  const bool _isRepeated=false);
   
   sf::Sprite getSprite();
   float getScale();
 
-  void setSprite(const std::string texturePath);
+  void setSprite(const std::string texturePath,const sf::IntRect area);
   void setScale(const float _scale);
   void setDirection(const std::string direction);
 
