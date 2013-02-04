@@ -16,9 +16,11 @@ Character * CharacterFactory::get(const std::string name) {
     CComponent * sprite =
       new CSprite(character,
 		  std::string("material/img/chara-design/gravedigger.png"),
-		  sf::IntRect(0,0,21,19),
+		  21,
+		  19,
 		  2.0);
     ((CSprite *) sprite)->updateSubSprite(18,14,21,19); // TODO: Rework on it
+    ((CSprite *) sprite)->setOrigin("middle","top");
     CComponent * speed = new CSpeed(character);
     CComponent * acceleration = new CAcceleration(character);
     character->addComponent(std::string("Position"),position);

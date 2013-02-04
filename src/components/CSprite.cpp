@@ -2,10 +2,11 @@
 
 CSprite::CSprite(GameObject * parent,
 		 const std::string texturePath,
-		 const sf::IntRect area,
+		 const int width,
+		 const int height,
 		 const float _scale,
 		 const bool _isRepeated) : CComponent(parent) {
-  texture.create(area.width,area.height);
+  texture.create(width,height);
   texture.setRepeated(_isRepeated);
   if (!texture.loadFromFile(texturePath)) {
     std::cout << "Error while loading Sprite, path" + texturePath << std::endl;
@@ -13,7 +14,6 @@ CSprite::CSprite(GameObject * parent,
   setScale(_scale);
 
   sprite.setTexture(texture);
-  sprite.setScale(_scale,_scale); // Square
 }
 
 sf::Sprite CSprite::getSprite() {
@@ -53,11 +53,25 @@ void CSprite::updatePosition() {
 }
 
 void CSprite::updateSubSprite(const int left,
-			     const int top,
-			     const int width,
-			     const int height) {
+			      const int top,
+			      const int width,
+			      const int height) {
   sf::IntRect rectangle(left,top,width,height);
-  boundingBox = rectangle;
   sprite.setTextureRect(rectangle);
-  sprite.setOrigin(width/2,top);
+}
+
+void CSprite::setOrigin(const std::string _xOrigin,const std::string _yOrigin){
+  if (_xOrigin.compare("left")==0){
+    xOrigin = 0.;
+  }
+  if (_xOrigin.compare("right")==0){
+    xOrigin = (sprite.getGlobalBounds().width);
+  }
+  if (_xOrigin.compare("middle")==0){
+    xOrigin = (sprite.getGlobalBounds().width)/(scale*2.0);
+  }
+  yOrigin=0.;
+  //  std::cout << xOrigin << std::endl;
+  //TODO ; yorigin ; *scale ???
+  sprite.setOrigin(xOrigin,yOrigin);
 }

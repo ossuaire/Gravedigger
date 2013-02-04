@@ -17,14 +17,16 @@ private:
   sf::Texture texture;
 
   float scale;
-
-  sf::IntRect boundingBox;
+  // coordinate of the origin of transformations
+  float xOrigin;
+  float yOrigin;
 
 public:
   
   CSprite(GameObject * parent,
 	  const std::string texturePath,
-	  const sf::IntRect area,
+	  const int width,
+	  const int height,
 	  const float _scale=1.0,
 	  const bool _isRepeated=false);
   
@@ -34,6 +36,7 @@ public:
   void setSprite(const std::string texturePath,const sf::IntRect area);
   void setScale(const float _scale);
   void setDirection(const std::string direction);
+  void setOrigin(const std::string _xOrigin, const std::string _yOrigin);
 
   void updatePosition();
 

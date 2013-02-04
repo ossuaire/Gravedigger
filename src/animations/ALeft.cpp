@@ -11,18 +11,21 @@ void ALeft::execute(const sf::Int32 elapsed) {
   speed = (CSpeed *) parent->getComponent("Speed");
   CAcceleration * acceleration;
   acceleration = (CAcceleration *) parent->getComponent("Acceleration");
-  CPosition * position;
-  position = (CPosition *) parent->getComponent("Position");
+  CPosition * position = (CPosition *) parent->getComponent("Position");
+  CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
+  sprite->setDirection("left");
 
-  if (speed->getHSpeed() > 1.2) {
+  if (speed->getHSpeed() > 1.4) {
     // #2a go back to 0
     speed->setHSpeed((speed->getHSpeed())-((float)(speed->getHSpeed())/8.0));
     position->setX((position->getX())+(speed->getHSpeed()));
+    sprite->updatePosition();
   } else {
     // #2b increase speed
     speed->setHSpeed((speed->getHSpeed())-(acceleration->getHAcceleration()));
     position->setX((position->getX())+(speed->getHSpeed()));
-  }  
+    sprite->updatePosition();
+  } 
   // #3 change sprites TODO
   // example : if elapsed > modulotime/2 then ...
 }

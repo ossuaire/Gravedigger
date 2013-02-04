@@ -2,7 +2,6 @@
 #define __CPOSITION_H__
 
 #include "CComponent.hpp"
-#include "CSprite.hpp"
 
 class GameObject;
 

@@ -33,20 +33,20 @@ int main()
       if ((event.type == sf::Event::KeyPressed) &&
 	  (event.key.code == sf::Keyboard::D)) { // right
 	state->setState("Right");
-	sprite->setDirection("right"); // TODO change it in animations
-      }
-      if ((event.type == sf::Event::KeyReleased) &&
-	  (event.key.code == sf::Keyboard::D)) {
-	state->setState("Stand");
-      }
-      if ((event.type == sf::Event::KeyReleased) &&
-	  (event.key.code == sf::Keyboard::Q)) { // stop
-	state->setState("Stand");
       }
       if ((event.type == sf::Event::KeyPressed) &&
 	  (event.key.code == sf::Keyboard::Q)) { // left
 	state->setState("Left");
-	sprite->setDirection("left");
+      }
+      if ((event.type == sf::Event::KeyReleased) &&
+	  (event.key.code == sf::Keyboard::D) &&
+	  (state->getState().compare("Right")==0)) {
+	state->setState("Stand");
+      }
+      if ((event.type == sf::Event::KeyReleased) &&
+	  (event.key.code == sf::Keyboard::Q) &&
+	  (state->getState().compare("Left")==0)) {
+	state->setState("Stand");
       }
     }
     sf::Time elapsed = clock.restart();

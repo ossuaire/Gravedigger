@@ -7,17 +7,18 @@ AStand::AStand(Character * _parent,
 void AStand::execute(const sf::Int32 elapsed) {
   // TODO: Verif' they are existing components
   // #1 get all components
-  CSpeed * speed;
-  speed = (CSpeed *) parent->getComponent("Speed");
-  if ((float) std::abs(speed->getHSpeed()) > 1.2) {
+  
+  CSpeed * speed = (CSpeed *) parent->getComponent("Speed");
+  if ((float) std::abs(speed->getHSpeed()) > 1.4) {
     CAcceleration * acceleration;
     acceleration = (CAcceleration *) parent->getComponent("Acceleration");
-    CPosition * position;
-    position = (CPosition *) parent->getComponent("Position");
-  
+    CPosition *  position = (CPosition *) parent->getComponent("Position");
+    CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
+
     // #2 add value
     speed->setHSpeed((speed->getHSpeed())-((float)(speed->getHSpeed())/8.0));
     position->setX((position->getX())+(speed->getHSpeed()));
+    sprite->updatePosition();
   } else {
     speed->setHSpeed(0.0);
   }

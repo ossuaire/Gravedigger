@@ -13,7 +13,8 @@ Environment * EnvironmentFactory::get(const std::string name) {
     CComponent * sprite =
       new CSprite(environment,
 		  std::string("material/img/misc/brick.png"),
-		  sf::IntRect(0,0,256,16),
+		  256,
+		  16,
 		  2.0,
 		  true);
     ((CSprite *) sprite)->updateSubSprite(0,0,256,16);

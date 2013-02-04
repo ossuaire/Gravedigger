@@ -6,6 +6,7 @@
 #include "CPosition.hpp"
 #include "CSpeed.hpp"
 #include "CAcceleration.hpp"
+#include "CSprite.hpp"
 
 class ARight : public AAnimation {
 
