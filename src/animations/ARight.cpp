@@ -13,6 +13,7 @@ void ARight::execute(const sf::Int32 elapsed) {
   CPosition * position = (CPosition *) parent->getComponent("Position");
   CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
   sprite->setDirection("right");
+
   if (speed->getHSpeed() < -1.4) {
     // #2a go back to 0                                                       
     speed->setHSpeed((speed->getHSpeed())-((float)(speed->getHSpeed())/8.0));
@@ -21,7 +22,7 @@ void ARight::execute(const sf::Int32 elapsed) {
   } else { 
     // #2b add values
     speed->setHSpeed((speed->getHSpeed())+(acceleration->getHAcceleration()));
-    position->setX((position->getX())+(speed->getHSpeed()));
+    position->setX((position->getX())+ceil((speed->getHSpeed()))); // round sup
     sprite->updatePosition();
   }
   // #3 change sprites TODO

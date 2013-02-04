@@ -23,7 +23,7 @@ void ALeft::execute(const sf::Int32 elapsed) {
   } else {
     // #2b increase speed
     speed->setHSpeed((speed->getHSpeed())-(acceleration->getHAcceleration()));
-    position->setX((position->getX())+(speed->getHSpeed()));
+    position->setX((position->getX())+(speed->getHSpeed())); // round inf
     sprite->updatePosition();
   } 
   // #3 change sprites TODO
