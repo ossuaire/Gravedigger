@@ -2,9 +2,9 @@
 
 CSprite::CSprite(GameObject * parent,
 		 const std::string texturePath,
-		 const float _scale,
+    		 const float _scale,
 		 const bool _isRepeated) : CComponent(parent) {
-  texture.setRepeated(_isRepeated);
+    texture.setRepeated(_isRepeated);
   if (!texture.loadFromFile(texturePath)) {
     std::cout << "Error while loading Sprite, path" + texturePath << std::endl;
   } 

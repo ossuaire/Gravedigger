@@ -5,6 +5,7 @@
 #include "Environment.hpp"
 #include "CPosition.hpp"
 #include "CSprite.hpp"
+#include "CBoundingBox.hpp"
 
 class EnvironmentFactory {
 

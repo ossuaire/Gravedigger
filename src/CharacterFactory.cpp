@@ -12,18 +12,19 @@ Character * CharacterFactory::get(const std::string name) {
 
   if (name.compare("Gravedigger")==0) { // Instance of Gravedigger required
     character = new Character(std::string("Gravedigger"));
-    CComponent * position = new CPosition(character,100,200);
+    CComponent * position = new CPosition(character,100,240);
+    CComponent * boundingbox = new CBoundingBox(character,
+						sf::IntRect(100,240,42,38));
     CComponent * sprite =
       new CSprite(character,
 		  std::string("material/img/chara-design/gravedigger.png"),
-		  21,
-		  19,
 		  2.0);
     ((CSprite *) sprite)->updateSubSprite(18,14,21,19); // TODO: Rework on it
-    ((CSprite *) sprite)->setOrigin("middle","top");
+    ((CSprite *) sprite)->setOrigin("middle","bottom");
     CComponent * speed = new CSpeed(character);
     CComponent * acceleration = new CAcceleration(character);
     character->addComponent(std::string("Position"),position);
+    character->addComponent(std::string("BoundingBox"),boundingbox);
     character->addComponent(std::string("Sprite"),sprite);
     character->addComponent(std::string("Speed"),speed);
     character->addComponent(std::string("Acceleration"),acceleration);

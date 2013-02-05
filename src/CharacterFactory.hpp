@@ -11,6 +11,7 @@
 #include "CSpeed.hpp"
 #include "CAcceleration.hpp"
 #include "CState.hpp"
+#include "CBoundingBox.hpp"
 
 #include "AAnimation.hpp"
 #include "AStand.hpp" 

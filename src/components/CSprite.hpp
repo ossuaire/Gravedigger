@@ -25,8 +25,6 @@ public:
   
   CSprite(GameObject * parent,
 	  const std::string texturePath,
-	  const int width,
-	  const int height,
 	  const float _scale=1.0,
 	  const bool _isRepeated=false);
   
