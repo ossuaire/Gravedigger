@@ -16,26 +16,26 @@ private:
 
   std::string state;
   
-  sf::Int32 elapsedSum; // unit: ms
-  sf::Int32 moduloTime; // unit: ms
+  sf::Int64 elapsedSum; // unit: us
+  sf::Int64 moduloTime; // unit: us
   
-  void setElapsedSum(const sf::Int32 _elapsedSum);
+  void setElapsedSum(const sf::Int64 _elapsedSum);
 
 public:
 
-  CState(GameObject* parent,const sf::Int32 _moduloTime);
+  CState(GameObject* parent,const sf::Int64 _moduloTime);
 
   std::string getState();
-  sf::Int32 getElapsedSum();
-  sf::Int32 getModuloTime();
+  sf::Int64 getElapsedSum();
+  sf::Int64 getModuloTime();
   AAnimation * getAnimation(const std::string  name);
 
   void setState(const std::string _state);
-  void setModuloTime(const sf::Int32 _moduloTime);
+  void setModuloTime(const sf::Int64 _moduloTime);
   void addAnimation(const std::string name, AAnimation * animation);
   void delAnimation(const std::string  name);
 
-  void update(sf::Int32 elapsed);
+  void update(sf::Int64 elapsed);
 };
 
 

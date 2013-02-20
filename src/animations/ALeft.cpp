@@ -1,10 +1,10 @@
 #include "ALeft.hpp"
 
 ALeft::ALeft(Character * _parent,
-	     const sf::Int32 _moduloTime) : AAnimation(_parent,_moduloTime) {
+	     const sf::Int64 _moduloTime) : AAnimation(_parent,_moduloTime) {
 }
 
-void ALeft::execute(const sf::Int32 elapsed) {
+void ALeft::execute(const sf::Int64 elapsed) {
   // TODO: Verif' they are existing components
   // #1 get all components
   CSpeed * speed;

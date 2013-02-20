@@ -1,10 +1,10 @@
 #include "AStand.hpp"
 
 AStand::AStand(Character * _parent,
-	       const sf::Int32 _moduloTime) : AAnimation(_parent,_moduloTime) {
+	       const sf::Int64 _moduloTime) : AAnimation(_parent,_moduloTime) {
 }
 
-void AStand::execute(const sf::Int32 elapsed) {
+void AStand::execute(const sf::Int64 elapsed) {
   // TODO: Verif' they are existing components
   // #1 get all components
   
@@ -25,4 +25,13 @@ void AStand::execute(const sf::Int32 elapsed) {
 
   // #3 change sprites TODO
   // example : if elapsed > modulotime/2 then ...
+  CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
+  if (elapsed < getModuloTime()/2){
+    sprite->updateSubSprite(getSubSprites().at(0));
+  } else {
+    if (getSubSprites().size()>1) {
+      sprite->updateSubSprite(getSubSprites().at(1));
+    }
+  }
+  sprite->setOrigin("middle","bottom");
 }

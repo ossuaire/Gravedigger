@@ -43,6 +43,7 @@ public:
 		       const int width,
 		       const int height);
 
+  void updateSubSprite(const sf::IntRect subSprite);
 };
 
 #endif

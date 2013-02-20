@@ -16,9 +16,9 @@ private:
 
 public:
 
-  AStand(Character * _parent,const sf::Int32 _moduloTime);
+  AStand(Character * _parent,const sf::Int64 _moduloTime);
 
-  void execute(const sf::Int32 elapsed);
+  void execute(const sf::Int64 elapsed);
 };
 
 #endif

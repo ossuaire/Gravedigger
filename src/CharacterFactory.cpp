@@ -18,9 +18,9 @@ Character * CharacterFactory::get(const std::string name) {
     CComponent * sprite =
       new CSprite(character,
 		  std::string("material/img/chara-design/gravedigger.png"),
-		  2.0);
-    ((CSprite *) sprite)->updateSubSprite(18,14,21,19); // TODO: Rework on it
-    ((CSprite *) sprite)->setOrigin("middle","bottom");
+		  1.0);
+    //((CSprite *) sprite)->updateSubSprite(3,3,42,38); // TODO: Rework on it
+    //    ((CSprite *) sprite)->setOrigin("middle","bottom");
     CComponent * speed = new CSpeed(character);
     CComponent * acceleration = new CAcceleration(character);
     character->addComponent(std::string("Position"),position);
@@ -31,9 +31,13 @@ Character * CharacterFactory::get(const std::string name) {
     
     // Creating states
     sf::Time oneSec = sf::seconds(1.0);
-    sf::Int32 thousandMillisec = oneSec.asMilliseconds(); 
+    sf::Int64 thousandMillisec = oneSec.asMicroseconds(); 
     CState * state = new CState(character, thousandMillisec);
-    AStand * stand = new AStand(character, thousandMillisec);
+    AStand * stand = new AStand(character, 2.0*thousandMillisec);
+    sf::IntRect subSprite1(3,3,42,38);
+    sf::IntRect subSprite2(50,3,42,38);
+    stand->addSubSprite(subSprite1);
+    stand->addSubSprite(subSprite2);
     ALeft  * left  = new ALeft (character, thousandMillisec);
     ARight * right = new ARight(character, thousandMillisec);
     state->addAnimation(std::string("Stand"),stand);

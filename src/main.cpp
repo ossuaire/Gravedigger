@@ -21,10 +21,10 @@ int main()
   Environment * floor = ef.get("Floor");
   CSprite * fsprite = (CSprite *) floor->getComponent("Sprite");
   fsprite->updatePosition();
-
+  sf::Clock clock;
   while (window.isOpen()) {
     sf::Event event;
-    sf::Clock clock;
+    sf::Time elapsed = clock.restart();
 
     while (window.pollEvent(event)) {
       if (event.type == sf::Event::Closed) {
@@ -49,9 +49,7 @@ int main()
 	state->setState("Stand");
       }
     }
-    sf::Time elapsed = clock.restart();
-
-    state->update(elapsed.asMilliseconds());
+    state->update(elapsed.asMicroseconds());
 
     window.draw(sprite->getSprite() );
     window.draw(fsprite->getSprite());

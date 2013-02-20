@@ -57,6 +57,10 @@ void CSprite::updateSubSprite(const int left,
   sprite.setTextureRect(rectangle);
 }
 
+void CSprite::updateSubSprite(const sf::IntRect subSprite) {
+  sprite.setTextureRect(subSprite);
+}
+
 void CSprite::setOrigin(const std::string _xOrigin,const std::string _yOrigin){
   // default set to left, top
   xOrigin = 0.;
