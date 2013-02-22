@@ -34,7 +34,7 @@ void ALeft::execute(const sf::Int64 elapsed) {
   } else {
     temp = elapsed;
   }
-  int k = 0; //index to read in tab                                             
+  int k = 0; //index to read in tab  
   while (temp >0) {
     ++k;
     temp = temp - getModuloTime()/getSubSprites().size();
