@@ -27,4 +27,17 @@ void ARight::execute(const sf::Int64 elapsed) {
   }
   // #3 change sprites TODO
   // example : if elapsed > modulotime/2 then ...
+  sf::Int64 temp;
+  if (elapsed>getModuloTime()){
+    temp = getModuloTime();
+  } else {
+    temp = elapsed;
+  }
+  int k = 0; //index to read in tab
+  while (temp >0) {
+    ++k;
+    temp = temp - getModuloTime()/getSubSprites().size();
+  }
+  sprite->updateSubSprite(getSubSprites().at(k-1));
+  sprite->setOrigin("middle","bottom");
 }

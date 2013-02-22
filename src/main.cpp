@@ -31,11 +31,13 @@ int main()
 	window.close();
       }
       if ((event.type == sf::Event::KeyPressed) &&
-	  (event.key.code == sf::Keyboard::D)) { // right
+	  (event.key.code == sf::Keyboard::D) &&
+	  (state->getState().compare("Right")!=0)) { // right
 	state->setState("Right");
       }
       if ((event.type == sf::Event::KeyPressed) &&
-	  (event.key.code == sf::Keyboard::Q)) { // left
+	  (event.key.code == sf::Keyboard::Q) &&
+	  (state->getState().compare("Left")!=0)) { // left
 	state->setState("Left");
       }
       if ((event.type == sf::Event::KeyReleased) &&
