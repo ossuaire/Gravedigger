@@ -7,7 +7,7 @@ AStand::AStand(Character * _parent,
 void AStand::execute(const sf::Int64 elapsed) {
   // TODO: Verif' they are existing components
   // #1 get all components
-  
+  sf::Int64 tempElapsedSum = getElapsedSum() + elapsed;
   CSpeed * speed = (CSpeed *) parent->getComponent("Speed");
   if ((float) std::abs(speed->getHSpeed()) > 1.4) {
     CAcceleration * acceleration;
@@ -23,10 +23,10 @@ void AStand::execute(const sf::Int64 elapsed) {
     speed->setHSpeed(0.0);
   }
 
-  // #3 change sprites TODO
-  // example : if elapsed > modulotime/2 then ...
+  // #3 change sprites
+  // For now, only 2 sprites allowed, maybe tochange in future
   CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
-  if (elapsed < getModuloTime()/2){
+  if (tempElapsedSum < getModuloTime()/2){
     sprite->updateSubSprite(getSubSprites().at(0));
   } else {
     if (getSubSprites().size()>1) {
@@ -34,4 +34,5 @@ void AStand::execute(const sf::Int64 elapsed) {
     }
   }
   sprite->setOrigin("middle","bottom");
+  setElapsedSum(tempElapsedSum%getModuloTime());
 }

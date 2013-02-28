@@ -15,11 +15,6 @@ private:
   std::map<std::string, AAnimation*> animations;
 
   std::string state;
-  
-  sf::Int64 elapsedSum; // unit: us
-  sf::Int64 moduloTime; // unit: us
-  
-  void setElapsedSum(const sf::Int64 _elapsedSum);
 
 public:
 

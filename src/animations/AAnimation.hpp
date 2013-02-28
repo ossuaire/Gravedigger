@@ -10,6 +10,7 @@ class AAnimation {
 
 private:
 
+  sf::Int64 elapsedSum;
   sf::Int64 moduloTime;
   std::vector<sf::IntRect> subSprites;
 
@@ -21,7 +22,9 @@ public:
   ~AAnimation();
 
   sf::Int64 getModuloTime();
+  sf::Int64 getElapsedSum();
 
+  void setElapsedSum(const sf::Int64 _elapsedSum);
   void setModuloTime(const sf::Int64 _moduloTime);
   void addSubSprite(const sf::IntRect subSprite);
   std::vector<sf::IntRect> getSubSprites();

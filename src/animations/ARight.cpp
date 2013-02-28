@@ -7,6 +7,7 @@ ARight::ARight(Character * _parent,
 void ARight::execute(const sf::Int64 elapsed) {
   // TODO: Verif' they are existing components
   // #1 get all components
+  sf::Int64 tempElapsedSum = getElapsedSum() + elapsed;
   CAcceleration * acceleration;
   acceleration = (CAcceleration *) parent->getComponent("Acceleration");
   CSpeed * speed = (CSpeed *) parent->getComponent("Speed");
@@ -25,22 +26,17 @@ void ARight::execute(const sf::Int64 elapsed) {
     position->setX((position->getX())+ceil((speed->getHSpeed()))); // round sup
     sprite->updatePosition();
   }
-  // #3 change sprites TODO
-  // example : if elapsed > modulotime/2 then ...
-  sf::Int64 temp;
-  //if (elapsed>getModuloTime()){
-    //temp = getModuloTime();
-    //} else {
-  temp = elapsed;
-    //}
+
+  // #3 change sprites
+  sf::Int64 temp = 0;
   int k = 0; //index to read in tab
-  while (temp >0) {
+  while (temp < tempElapsedSum) {
     ++k;
-    temp = temp - getModuloTime()/getSubSprites().size();
+    temp = temp + (getModuloTime()/getSubSprites().size());
   }
   if ((k-1)>=getSubSprites().size())
     {k=getSubSprites().size();}
-  
   sprite->updateSubSprite(getSubSprites().at(k-1));
   sprite->setOrigin("middle","bottom");
+  setElapsedSum(tempElapsedSum%getModuloTime());
 }

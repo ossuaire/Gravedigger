@@ -3,9 +3,9 @@ EXEC=gravedigger
 OBJECT=./object/
 SOURCE=./src/
 
-INCPATH= -I$(SOURCE) -I$(SOURCE)animations/ -I$(SOURCE)components/ -I$(SOURCE)rtree/
+INCPATH= -I$(SOURCE) -I$(SOURCE)animations/ -I$(SOURCE)components/
 LIBS= -lsfml-window -lsfml-graphics -lsfml-system
-DEP= CComponent.o GameObject.o Character.o Environment.o CSprite.o CPosition.o CSpeed.o CAcceleration.o CBoundingBox.o RTree.o CharacterFactory.o EnvironmentFactory.o AAnimation.o ALeft.o ARight.o AStand.o CState.o main.o
+DEP= CComponent.o GameObject.o Character.o Environment.o CSprite.o CPosition.o CSpeed.o CAcceleration.o CBoundingBox.o CharacterFactory.o EnvironmentFactory.o AAnimation.o ALeft.o ARight.o AStand.o CState.o main.o
 
 all: $(EXEC)
 
