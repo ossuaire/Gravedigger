@@ -1,6 +1,7 @@
 #ifndef __CACCELERATION_H__
 #define __CACCELERATION_H__
 
+#include <SFML/System.hpp>
 #include "CComponent.hpp"
 
 class GameObject;
@@ -9,21 +10,21 @@ class CAcceleration : public CComponent {
 
 private:
 
-  // Acceleration value added or subbed to speed
-  float vAcceleration;
-  float hAcceleration;
+  // Time in microseconds to reach max speed
+  sf::Int64 vAcceleration;
+  sf::Int64 hAcceleration;
 
 public:
 
   CAcceleration(GameObject* _parent,
-		const float _hAcceleration=0.1,
-		const float _vAcceleration=0.1);
+		const sf::Int64 _hAcceleration=1000000, // 1s
+		const sf::Int64 _vAcceleration=1000000); // 1s
 
-  float getVAcceleration();
-  float getHAcceleration();
+  sf::Int64 getVAcceleration();
+  sf::Int64 getHAcceleration();
   
-  void setVAcceleration(const float _vAcceleration);
-  void setHAcceleration(const float _hAcceleration);
+  void setVAcceleration(const sf::Int64 _vAcceleration);
+  void setHAcceleration(const sf::Int64 _hAcceleration);
 
 };
 

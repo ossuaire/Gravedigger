@@ -22,7 +22,9 @@ void ARight::execute(const sf::Int64 elapsed) {
     sprite->updatePosition();
   } else { 
     // #2b add values
-    speed->setHSpeed((speed->getHSpeed())+(acceleration->getHAcceleration()));
+    speed->setHSpeed((speed->getHSpeed())+
+		     ((float)elapsed/acceleration->getHAcceleration()*
+		      speed->getHSpeedMax()));
     position->setX((position->getX())+ceil((speed->getHSpeed()))); // round sup
     sprite->updatePosition();
   }

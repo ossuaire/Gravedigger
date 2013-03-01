@@ -21,8 +21,12 @@ Character * CharacterFactory::get(const std::string name) {
 		  1.5);
     //((CSprite *) sprite)->updateSubSprite(3,3,42,38); // TODO: Rework on it
     //    ((CSprite *) sprite)->setOrigin("middle","bottom");
+    sf::Time oneSec = sf::seconds(1.0);
+    sf::Int64 thousandMillisec = oneSec.asMicroseconds(); 
+
     CComponent * speed = new CSpeed(character);
-    CComponent * acceleration = new CAcceleration(character);
+    CComponent * acceleration = new CAcceleration(character,
+						  2.0*thousandMillisec);
     character->addComponent(std::string("Position"),position);
     character->addComponent(std::string("BoundingBox"),boundingbox);
     character->addComponent(std::string("Sprite"),sprite);
@@ -30,8 +34,6 @@ Character * CharacterFactory::get(const std::string name) {
     character->addComponent(std::string("Acceleration"),acceleration);
     
     // Creating states
-    sf::Time oneSec = sf::seconds(1.0);
-    sf::Int64 thousandMillisec = oneSec.asMicroseconds(); 
     CState * state = new CState(character, thousandMillisec);
     AStand * stand = new AStand(character, 2.0*thousandMillisec);
     sf::IntRect subSprite1(3,3,42,45); // Stand 1

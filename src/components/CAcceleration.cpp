@@ -2,26 +2,27 @@
 
 
 CAcceleration::CAcceleration(GameObject* _parent,
-			     const float _hAcceleration,
-			     const float _vAcceleration): CComponent(_parent) {
+			     const sf::Int64 _hAcceleration,
+			     const sf::Int64 _vAcceleration) :
+                             CComponent(_parent) {
   setHAcceleration(_hAcceleration);
   setVAcceleration(_vAcceleration);
 }
 
 
-float CAcceleration::getHAcceleration() {
+sf::Int64 CAcceleration::getHAcceleration() {
   return hAcceleration;
 }
 
-float CAcceleration::getVAcceleration() {
+sf::Int64 CAcceleration::getVAcceleration() {
   return vAcceleration;
 }
 
-void CAcceleration::setHAcceleration(const float _hAcceleration) {
+void CAcceleration::setHAcceleration(const sf::Int64 _hAcceleration) {
   hAcceleration = _hAcceleration;
 }
 
-void CAcceleration::setVAcceleration(const float _vAcceleration) {
+void CAcceleration::setVAcceleration(const sf::Int64 _vAcceleration) {
   vAcceleration = _vAcceleration;
 }
 

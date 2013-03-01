@@ -2,6 +2,7 @@
 #define __ALEFT_H__
 
 #include <SFML/System.hpp>
+#include <math.h>
 #include "AAnimation.hpp"
 #include "CPosition.hpp"
 #include "CSpeed.hpp"

@@ -24,8 +24,13 @@ void ALeft::execute(const sf::Int64 elapsed) {
     sprite->updatePosition();
   } else {
     // #2b increase speed
-    speed->setHSpeed((speed->getHSpeed())-(acceleration->getHAcceleration()));
-    position->setX((position->getX())+(speed->getHSpeed())); // round inf
+    //std::cout << "elapsed" << elapsed << std::endl;
+    //std::cout << "Hacceleration" << acceleration->getHAcceleration() << std::endl; 
+    //std::cout << "ratio" <<(float) elapsed/acceleration->getHAcceleration() <<std::endl;
+    speed->setHSpeed((speed->getHSpeed()) - 
+		     (((float)elapsed/acceleration->getHAcceleration())*
+		      speed->getHSpeedMax()));
+    position->setX((position->getX())+floor(speed->getHSpeed())); // round inf
     sprite->updatePosition();
   } 
 
