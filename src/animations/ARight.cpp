@@ -15,7 +15,7 @@ void ARight::execute(const sf::Int64 elapsed) {
   CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
   sprite->setDirection("right");
 
-  if (speed->getHSpeed() < -1.4) {
+  if (speed->getHSpeed() < -1.2) {
     // #2a go back to 0                                                       
     speed->setHSpeed((speed->getHSpeed())-((float)(speed->getHSpeed())/8.0));
     position->setX((position->getX())+(speed->getHSpeed()));

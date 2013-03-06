@@ -9,7 +9,7 @@ void AStand::execute(const sf::Int64 elapsed) {
   // #1 get all components
   sf::Int64 tempElapsedSum = getElapsedSum() + elapsed;
   CSpeed * speed = (CSpeed *) parent->getComponent("Speed");
-  if ((float) std::abs(speed->getHSpeed()) > 1.4) {
+  if ((float) std::abs(speed->getHSpeed()) > 1.2) {
     CAcceleration * acceleration;
     acceleration = (CAcceleration *) parent->getComponent("Acceleration");
     CPosition *  position = (CPosition *) parent->getComponent("Position");

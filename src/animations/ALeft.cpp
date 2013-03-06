@@ -17,16 +17,13 @@ void ALeft::execute(const sf::Int64 elapsed) {
   CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
   sprite->setDirection("left");
 
-  if (speed->getHSpeed() > 1.4) {
+  if (speed->getHSpeed() > 1.2) {
     // #2a go back to 0
     speed->setHSpeed((speed->getHSpeed())-((float)(speed->getHSpeed())/8.0));
     position->setX((position->getX())+(speed->getHSpeed()));
     sprite->updatePosition();
   } else {
     // #2b increase speed
-    //std::cout << "elapsed" << elapsed << std::endl;
-    //std::cout << "Hacceleration" << acceleration->getHAcceleration() << std::endl; 
-    //std::cout << "ratio" <<(float) elapsed/acceleration->getHAcceleration() <<std::endl;
     speed->setHSpeed((speed->getHSpeed()) - 
 		     (((float)elapsed/acceleration->getHAcceleration())*
 		      speed->getHSpeedMax()));
