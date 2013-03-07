@@ -36,10 +36,12 @@ void CSprite::setScale(const float _scale) {
 
 void CSprite::setDirection(const std::string direction) {
   if (direction.compare("left")==0) {
-      sprite.setScale(-scale,scale);    
+      sprite.setScale(-scale,scale);
+      setOrigin("middle","bottom");
   }
   if (direction.compare("right")==0) {
     sprite.setScale(scale,scale);
+    setOrigin("middle","bottom");
   }
 }
 
@@ -63,9 +65,7 @@ void CSprite::updateSubSprite(const sf::IntRect subSprite) {
 
 void CSprite::setOrigin(const std::string _xOrigin,const std::string _yOrigin){
   // default set to left, top
-  xOrigin = 0.;
-  yOrigin = 0.;
-
+  
   if (_xOrigin.compare("right")==0){
     xOrigin = (sprite.getLocalBounds().width);
   } else {

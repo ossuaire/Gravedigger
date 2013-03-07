@@ -1,8 +1,7 @@
 #include "CState.hpp"
 
 
-CState::CState(GameObject* _parent,
-	       const sf::Int64 _moduloTime): CComponent(_parent) {
+CState::CState(GameObject* _parent): CComponent(_parent) {
 }
 
 std::string CState::getState() {

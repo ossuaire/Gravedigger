@@ -15,7 +15,6 @@ void ALeft::execute(const sf::Int64 elapsed) {
   acceleration = (CAcceleration *) parent->getComponent("Acceleration");
   CPosition * position = (CPosition *) parent->getComponent("Position");
   CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
-  sprite->setDirection("left");
 
   if (speed->getHSpeed() > 1.2) {
     // #2a go back to 0
@@ -41,6 +40,6 @@ void ALeft::execute(const sf::Int64 elapsed) {
   if ((k-1)>=getSubSprites().size())
     { k=getSubSprites().size(); }
   sprite->updateSubSprite(getSubSprites().at(k-1));
-  sprite->setOrigin("middle","bottom");
+  sprite->setDirection("left");
   setElapsedSum(tempElapsedSum%getModuloTime());
 }

@@ -18,7 +18,7 @@ Character * CharacterFactory::get(const std::string name) {
     CComponent * sprite =
       new CSprite(character,
 		  std::string("material/img/chara-design/gravedigger.png"),
-		  1.5);
+		  1.0);
     //((CSprite *) sprite)->updateSubSprite(3,3,42,38); // TODO: Rework on it
     //    ((CSprite *) sprite)->setOrigin("middle","bottom");
     sf::Time oneSec = sf::seconds(1.0);
@@ -34,32 +34,23 @@ Character * CharacterFactory::get(const std::string name) {
     character->addComponent(std::string("Acceleration"),acceleration);
     
     // Creating states
-    CState * state = new CState(character, thousandMillisec);
+    CState * state = new CState(character);
     AStand * stand = new AStand(character, 2.0*thousandMillisec);
-    sf::IntRect subSprite1(3,3,42,45); // Stand 1
-    sf::IntRect subSprite2(52,3,42,45); // Stand 2
+    sf::IntRect subSprite1(3,3,45,44); // Stand 1
+    sf::IntRect subSprite2(53,3,45,44); // Stand 2
     stand->addSubSprite(subSprite1);
     stand->addSubSprite(subSprite2);
     ALeft  * left  = new ALeft (character, 0.35*thousandMillisec);
     ARight * right = new ARight(character, 0.35*thousandMillisec);
-    sf::IntRect subSprite3(3,52,42,40);
-    sf::IntRect subSprite4(53,52,42,40);
-    sf::IntRect subSprite5(103,52,42,40);
-    sf::IntRect subSprite55(103,102,42,40);
-    sf::IntRect subSprite6(153,52,42,40);
-    sf::IntRect subSprite7(203,52,42,40);
-    //  left->addSubSprite(subSprite3);
-    //  left->addSubSprite(subSprite4);
-    //  left->addSubSprite(subSprite5);
-    left->addSubSprite(subSprite55);
-    left->addSubSprite(subSprite6);
-    left->addSubSprite(subSprite7);
-    //  right->addSubSprite(subSprite3);
-    //  right->addSubSprite(subSprite4);
-    //  right->addSubSprite(subSprite5);
-    right->addSubSprite(subSprite55);
-    right->addSubSprite(subSprite6);
-    right->addSubSprite(subSprite7);
+    sf::IntRect subSprite3(3,53,45,38);
+    sf::IntRect subSprite4(53,53,45,38);
+    sf::IntRect subSprite5(103,53,45,38);
+    left->addSubSprite(subSprite3);
+    left->addSubSprite(subSprite4);
+    left->addSubSprite(subSprite5);
+    right->addSubSprite(subSprite3);
+    right->addSubSprite(subSprite4);
+    right->addSubSprite(subSprite5);
     state->addAnimation(std::string("Stand"),stand);
     state->addAnimation(std::string("Left"),  left);
     state->addAnimation(std::string("Right"),right);

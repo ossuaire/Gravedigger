@@ -18,7 +18,7 @@ private:
 
 public:
 
-  CState(GameObject* parent,const sf::Int64 _moduloTime);
+  CState(GameObject* parent);
 
   std::string getState();
   sf::Int64 getElapsedSum();

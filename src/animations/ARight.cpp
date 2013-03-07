@@ -13,7 +13,6 @@ void ARight::execute(const sf::Int64 elapsed) {
   CSpeed * speed = (CSpeed *) parent->getComponent("Speed");
   CPosition * position = (CPosition *) parent->getComponent("Position");
   CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
-  sprite->setDirection("right");
 
   if (speed->getHSpeed() < -1.2) {
     // #2a go back to 0                                                       
@@ -39,6 +38,6 @@ void ARight::execute(const sf::Int64 elapsed) {
   if ((k-1)>=getSubSprites().size())
     {k=getSubSprites().size();}
   sprite->updateSubSprite(getSubSprites().at(k-1));
-  sprite->setOrigin("middle","bottom");
+  sprite->setDirection("right");
   setElapsedSum(tempElapsedSum%getModuloTime());
 }
