@@ -53,9 +53,6 @@ int main()
       }
       if (event.type == sf::Event::MouseButtonPressed) {
 	// Do an action
-	//std::cout << event.mouseButton.x << std::endl;
-	//std::cout << event.mouseButton.y << std::endl;
-	// process vector
 	pelle = new Character("Pelle");
 	CPosition * position=(CPosition*)gravedigger->getComponent("Position");
 	int hVector = event.mouseButton.x - position->getX(); // from left
