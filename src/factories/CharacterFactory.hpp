@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 
+#include "ItemFactory.hpp"
+
 #include "Character.hpp"
 #include "CPosition.hpp"
 #include "CSprite.hpp"
@@ -17,6 +19,8 @@
 #include "AStand.hpp" 
 #include "ALeft.hpp"
 #include "ARight.hpp"
+
+#include "ACThrow.hpp"
 
 /**
  ** Factory which initialize a character and all its components.

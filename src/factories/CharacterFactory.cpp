@@ -8,6 +8,7 @@ CharacterFactory::CharacterFactory() {
  ** Names must be set as it were class Name
  **/
 Character * CharacterFactory::get(const std::string name) {
+  ItemFactory iF;
   Character * character;
 
   if (name.compare("Gravedigger")==0) { // Instance of Gravedigger required
@@ -27,11 +28,16 @@ Character * CharacterFactory::get(const std::string name) {
     CComponent * speed = new CSpeed(character);
     CComponent * acceleration = new CAcceleration(character,
 						  2.0*thousandMillisec);
-    character->addComponent(std::string("Position"),position);
-    character->addComponent(std::string("BoundingBox"),boundingbox);
-    character->addComponent(std::string("Sprite"),sprite);
-    character->addComponent(std::string("Speed"),speed);
-    character->addComponent(std::string("Acceleration"),acceleration);
+    character->addComponent("Position",position);
+    character->addComponent("BoundingBox",boundingbox);
+    character->addComponent("Sprite",sprite);
+    character->addComponent("Speed",speed);
+    character->addComponent("Acceleration",acceleration);
+
+    // Creating actions
+    GameObject * shovel = iF.get("Shovel");
+    ACAction * throwAction = new ACThrow(character,shovel);
+    character->addComponent("Throw",(CComponent*)throwAction);
     
     // Creating states
     CState * state = new CState(character);

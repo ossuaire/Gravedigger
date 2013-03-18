@@ -16,9 +16,9 @@ private:
 
 public:
 
-  Character* parent;
+  GameObject* parent;
 
-  AAnimation(Character* _parent, const sf::Int64 _moduloTime);
+  AAnimation(GameObject* _parent, const sf::Int64 _moduloTime);
   ~AAnimation();
 
   sf::Int64 getModuloTime();

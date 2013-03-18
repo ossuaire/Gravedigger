@@ -1,6 +1,6 @@
 #include "AAnimation.hpp"
 
-AAnimation::AAnimation(Character* _parent,
+AAnimation::AAnimation(GameObject* _parent,
 		       const sf::Int64 _moduloTime) : elapsedSum(0) {
   parent = _parent;
   moduloTime = _moduloTime;
