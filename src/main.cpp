@@ -27,7 +27,12 @@ int main()
   fsprite->updatePosition();
 
   // Main loop
-  bool thrown= false;
+  sf::CircleShape radiusHit;
+  radiusHit.setRadius(80);
+  radiusHit.setOutlineColor(sf::Color::Red);
+  radiusHit.setOutlineThickness(5);
+  bool thrown = false;
+  bool wasPressed = false;
   sf::Clock clock;
   while (window.isOpen()) {
     sf::Event event;
@@ -57,12 +62,16 @@ int main()
 	  (state->getState().compare("Left")==0)) {
 	state->setState("Stand");
       }
-      if (event.type == sf::Event::MouseButtonPressed) {
+      if (event.type == sf::Event::MouseButtonReleased) {
 	ACThrow * throwAction = (ACThrow*) gravedigger->getComponent("Throw");
 	throwAction->setX(event.mouseButton.x);
 	throwAction->setY(event.mouseButton.y);
 	throwAction->execute();
 	thrown  = true;
+	wasPressed = false;
+      }
+      if (event.type == sf::Event::MouseButtonPressed) {
+	wasPressed = true;
       }
       
 
@@ -73,6 +82,17 @@ int main()
     state->update(elapsed.asMicroseconds());
 
     window.clear(); // not sure why i do dat
+    if (wasPressed) {
+      CPosition * position=(CPosition*)gravedigger->getComponent("Position");
+      int x=
+	position->getX()-radiusHit.getRadius();
+      int y=
+	position->getY()-
+	(float)((sprite->getSprite()).getLocalBounds().height) -
+	(float)(radiusHit.getRadius()/2);
+      radiusHit.setPosition(x,y);
+      window.draw(radiusHit);
+    }
     window.draw(sprite->getSprite() );
     if (thrown) {
       GameObject * shovel;
