@@ -17,7 +17,7 @@ Item * ItemFactory::get(const std::string name) {
 			  "material/img/chara-design/zelda-heart.png",
 			  5.0);
 
-    CComponent * speed = new CSpeed(item,0,0,10,10);
+    CComponent * speed = new CSpeed(item,0,0,16,16);
 
     sf::Int64 microsec = sf::seconds(1.0).asMicroseconds();
     CComponent * state = new CState(item);
@@ -26,6 +26,9 @@ Item * ItemFactory::get(const std::string name) {
     move->addSubSprite(subsprite);
     ((CState*)state)->addAnimation("Move",move);
 
+    CComponent * accel=  new CAcceleration(item,2.0*microsec,0.75*microsec);
+
+    item->addComponent("Acceleration",accel);
     item->addComponent("State",state);
     item->addComponent("Speed",speed);
     item->addComponent("Position",position);

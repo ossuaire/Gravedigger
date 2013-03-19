@@ -37,11 +37,20 @@ void ACThrow::execute() {
   // #2 re init the values
   CPosition * position=(CPosition*)parent->getComponent("Position");
   CPosition * positionItem=(CPosition*)item->getComponent("Position");
+  CSpeed * speedItem = (CSpeed*)item->getComponent("Speed");
   positionItem->setX(position->getX());
   positionItem->setY(position->getY());
 
-  int hVector = x - position->getX(); // from left      
-  int vVector = y - position->getY();
+  // TODO: radius of throw
+  // Maxspeed when radius > input
+  float hVector = x - position->getX(); // from left      
+  float vVector = y - position->getY();
+  
+  // 80 = radius
+  hVector = (hVector/80.0)*(speedItem->getHSpeedMax());
+  vVector = (vVector/80.0)*(speedItem->getVSpeedMax());
+
+  // TODO : maxspeed is defined by speed of character also
 
   CSpeed * speed = (CSpeed*) item->getComponent("Speed");
   speed->setVSpeed(vVector);
