@@ -30,7 +30,10 @@ int main()
   sf::CircleShape radiusHit;
   radiusHit.setRadius(80);
   radiusHit.setOutlineColor(sf::Color::Red);
+  radiusHit.setFillColor(sf::Color::Black);
   radiusHit.setOutlineThickness(5);
+  sf::CircleShape radiusStrength;
+  radiusStrength.setRadius(0);
   bool thrown = false;
   bool wasPressed = false;
   sf::Clock clock;
@@ -69,6 +72,7 @@ int main()
 	throwAction->execute();
 	thrown  = true;
 	wasPressed = false;
+	radiusStrength.setRadius(0);
       }
       if (event.type == sf::Event::MouseButtonPressed) {
 	wasPressed = true;
@@ -81,19 +85,23 @@ int main()
     // Ask in collision handler item to draw
     state->update(elapsed.asMicroseconds());
 
-    window.clear(); // not sure why i do dat
+    window.clear();
     if (wasPressed) {
       CPosition * position=(CPosition*)gravedigger->getComponent("Position");
-      int x=
-	position->getX()-radiusHit.getRadius();
-      int y=
-	position->getY()-
-	(float)((sprite->getSprite()).getLocalBounds().height) -
-	(float)(radiusHit.getRadius()/2);
+      int x=  position->getX(); // already set to middle of character
+      int y= position->getY() -
+	(sprite->getSprite()).getLocalBounds().height/2; 
+      radiusHit.setOrigin(radiusHit.getRadius(),radiusHit.getRadius());
       radiusHit.setPosition(x,y);
+
+      radiusStrength.setRadius(std::min(80.f,radiusStrength.getRadius()+1) );
+      radiusStrength.setOrigin(radiusStrength.getRadius(),
+				 radiusStrength.getRadius());
+      radiusStrength.setPosition(x,y); // TOFIX setOrigin
       window.draw(radiusHit);
+      window.draw(radiusStrength);
     }
-    window.draw(sprite->getSprite() );
+    window.draw(sprite->getSprite());
     if (thrown) {
       GameObject * shovel;
       shovel = ((ACThrow*)gravedigger->getComponent("Throw"))->getItem();
