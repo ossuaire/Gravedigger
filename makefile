@@ -1,42 +1,45 @@
-CC=g++
-EXEC=gravedigger
-OBJECT=./object/
-SOURCE=./src/
+##### Makefile #################################################################
 
-INCPATH= -I$(SOURCE) -I$(SOURCE)animations/ -I$(SOURCE)components/ -I$(SOURCE)actions/ -I$(SOURCE)collision/ -I$(SOURCE)factories/
-LIBS= -lsfml-window -lsfml-graphics -lsfml-system
-DEP= CComponent.o GameObject.o Item.o Character.o Environment.o CSprite.o CPosition.o CSpeed.o CAcceleration.o CBoundingBox.o ItemFactory.o CharacterFactory.o EnvironmentFactory.o AAnimation.o AThrow.o ALeft.o ARight.o AStand.o CState.o ICollisionStruct.o MockStruct.o ACAction.o ACThrow.o main.o
+PROJECT = GraveDigger
+VERSION = 0.1
 
-all: $(EXEC)
+SOURCE_DIR = src/
+SOURCE_DIRS = $(SOURCE_DIR) $(sort $(dir $(wildcard $(SOURCE_DIR)*/**)))
+RESOURCE_DIR = material/
+BUILD_DIR = build/
+OBJECT_DIR = $(BUILD_DIR).obj/
 
-$(EXEC): $(DEP)
-	$(CC) -o $(EXEC) $(OBJECT)*.o $(LIBS)
+EXEC = $(BUILD_DIR)$(shell echo $(PROJECT) | tr '[:upper:]' '[:lower:]')
+SOURCES = $(foreach dir, $(SOURCE_DIRS), $(wildcard $(dir)*.cpp))
+HEADERS = $(foreach dir, $(SOURCE_DIRS), $(wildcard $(dir)*.hpp))
+OBJECTS = $(addprefix $(OBJECT_DIR), $(patsubst %.cpp, %.o, $(SOURCES)))
 
-%.o: $(SOURCE)%.cpp
-	$(CC) -c $(INCPATH) -o $(OBJECT)$@ $^
+CC = g++
+LD = $(CC)
+CFLAGS = $(addprefix -I, $(SOURCE_DIRS))
+LDFLAGS = -lsfml-window -lsfml-graphics -lsfml-system
 
-%.o: $(SOURCE)animations/%.cpp
-	$(CC) -c $(INCPATH) -o $(OBJECT)$@ $^
+################################################################################
 
-%.o: $(SOURCE)components/%.cpp
-	$(CC) -c $(INCPATH) -o $(OBJECT)$@ $^
+.PHONY: clean clean-all init
 
-%.o: $(SOURCE)collision/%.cpp
-	$(CC) -c $(INCPATH) -o $(OBJECT)$@ $^
+default: init $(EXEC)
 
-%.o: $(SOURCE)actions/%.cpp
-	$(CC) -c $(INCPATH) -o $(OBJECT)$@ $^
+init:
+	@mkdir -p $(BUILD_DIR)
+	@mkdir -p $(addprefix $(OBJECT_DIR), $(SOURCE_DIRS))
 
-%.o: $(SOURCE)factories/%.cpp
-	$(CC) -c $(INCPATH) -o $(OBJECT)$@ $^
+$(EXEC): $(OBJECTS)
+	@echo ">> Compiling $@"
+	@$(LD) $(LDFLAGS) -o $@ $^
 
-clear:
-	rm -f  *~
-	rm -f $(SOURCE)*~
-	rm -f $(SOURCE)components/*~
-	rm -f $(SOURCE)animations/*~
-	rm -f $(SOURCE)collision/*~
-	rm -f $(SOURCE)actions/*~
-	rm -f $(SOURCE)factories/*~
-	rm -f $(OBJECT)*.o
-	rm -f $(EXEC)
+$(OBJECT_DIR)%.o: %.cpp $(HEADERS)
+	@echo ">> $<\n   |-> $@"
+	@$(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+	rm -rf $(OBJECT_DIR)
+
+clean-all:
+	rm -rf $(BUILD_DIR)
+
