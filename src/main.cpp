@@ -69,6 +69,8 @@ int main()
 	ACThrow * throwAction = (ACThrow*) gravedigger->getComponent("Throw");
 	throwAction->setX(event.mouseButton.x);
 	throwAction->setY(event.mouseButton.y);
+	throwAction->setStrength(radiusStrength.getRadius()/
+				 radiusHit.getRadius());
 	throwAction->execute();
 	thrown  = true;
 	wasPressed = false;
@@ -77,8 +79,6 @@ int main()
       if (event.type == sf::Event::MouseButtonPressed) {
 	wasPressed = true;
       }
-      
-
     }
 
     // TODO register elements

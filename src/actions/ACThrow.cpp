@@ -3,6 +3,7 @@
 ACThrow::ACThrow(Character* _parent, GameObject * _item) : ACAction(_parent) {
   x=0;
   y=0;
+  strength=0.f;
   item=_item;
 }
 
@@ -12,6 +13,10 @@ void ACThrow::setX(const int _x){
 
 void ACThrow::setY(const int _y){
   y=_y;
+}
+
+void ACThrow::setStrength(const float _strength){
+  strength=_strength;
 }
 
 void ACThrow::setItem(GameObject * _item){
@@ -30,6 +35,10 @@ int ACThrow::getY(){
   return y;
 }
 
+float ACThrow::getStrength(){
+  return strength;
+}
+
 void ACThrow::execute() {
 
   // #1 TODO Verify preconditions
@@ -43,18 +52,22 @@ void ACThrow::execute() {
 
   // TODO: radius of throw
   // Maxspeed when radius > input
-  float hVector = x - position->getX(); // from left      
-  float vVector = y - position->getY();
-  
-  // 80 = radius
-  hVector = (hVector/80.0)*(speedItem->getHSpeedMax());
-  vVector = (vVector/80.0)*(speedItem->getVSpeedMax());
+  int hVector = x - position->getX(); // from left      
+  int vVector = y - position->getY();
+
+  int max = std::max(std::abs(hVector),std::abs(vVector));
+  float hVectorU = (float) hVector/max;
+  float vVectorU = (float) vVector/max;
+
+
+  float hVectorF = (hVectorU*strength)*(speedItem->getHSpeedMax());
+  float vVectorF = (vVectorU*strength)*(speedItem->getVSpeedMax());
 
   // TODO : maxspeed is defined by speed of character also
 
   CSpeed * speed = (CSpeed*) item->getComponent("Speed");
-  speed->setVSpeed(vVector);
-  speed->setHSpeed(hVector);
+  speed->setVSpeed(vVectorF);
+  speed->setHSpeed(hVectorF);
 
   CState * state = (CState*) item->getComponent("State");
   state->setState("Move");
