@@ -1,6 +1,8 @@
 Gravedigger
 ===========
 
+![No contributors...](/material/img/scenes/scene-1.png)
+
 2- Second tombstone
 ===================
 * a- Animation of walkin', jumpin'
