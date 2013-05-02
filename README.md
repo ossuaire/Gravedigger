@@ -1,7 +1,7 @@
 Gravedigger
 ===========
 
-<img height="200%" width="200%" src="/material/img/scenes/scene-1.png"></img>
+<img width="100%" src="/material/img/scenes/scene-1.png"></img>
 
 2- Second tombstone
 ===================
