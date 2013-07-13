@@ -53,7 +53,7 @@ PLIST_SED	= -e "s/__EXEC__/$(EXEC)/g"				\
 						-e "s/__ICON__/$(EXEC)/g"
 DMG				= $(PROJECT)-$(VERSION).dmg
 
-osx: $(BUILD_DIR)$(DMG)
+osx: init $(BUILD_DIR)$(DMG)
 
 $(BUILD_DIR)$(DMG): $(BUILD_DIR)$(APP)
 	@echo ">> Creating $@"

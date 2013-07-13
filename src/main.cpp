@@ -13,6 +13,7 @@ using namespace std;
 
 // this makes OS X relative paths work in C++ by changing directory to the
 // Resources folder inside the .app bundle
+#ifdef __APPLE__
 void ensure_mac_compatibility() {
   CFBundleRef mainBundle = CFBundleGetMainBundle();
   CFURLRef resourcesURL = CFBundleCopyResourcesDirectoryURL(mainBundle);
