@@ -27,7 +27,7 @@ endif
 
 .PHONY: 	init osx clean clean-all
 default:	init $(BUILD_DIR)$(EXEC)
-all: 			init osx
+all: 			init $(BUILD_DIR)$(EXEC) osx
 
 ##### Executable ###############################################################
 
