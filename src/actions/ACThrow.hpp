@@ -17,15 +17,19 @@ private:
   int x;
   int y;
 
+  float strength; // [0-1]
+
 public:
   ACThrow(Character* _parent, GameObject * item=NULL);
   
   int getX();
   int getY();
+  float getStrength();
   GameObject * getItem();
 
   void setX(const int _x);
   void setY(const int _y);
+  void setStrength(const float _strength);
   void setItem(GameObject * _item);
 
   void execute();
