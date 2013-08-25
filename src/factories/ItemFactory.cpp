@@ -14,7 +14,7 @@ Item * ItemFactory::get(const std::string name) {
     //						sf::IntRect(0,0,9,9));
     CComponent * sprite;
     sprite = new CSprite(item,
-			  "material/img/chara-design/zelda-heart.png",
+			  "../material/img/chara-design/zelda-heart.png",
 			  5.0);
 
     CComponent * speed = new CSpeed(item,0,0,16,16);

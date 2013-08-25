@@ -1,19 +1,21 @@
 #ifndef __ENVIRONMENTFACTORY_H__
 #define __ENVIRONMENTFACTORY_H__
 
+#include <Box2D/Box2D.h>
 #include <string>
 #include "Environment.hpp"
-#include "CPosition.hpp"
+#include "CPhysics.hpp"
 #include "CSprite.hpp"
-#include "CBoundingBox.hpp"
 
 class EnvironmentFactory {
 
 private:
-
+  
+  b2World * world;
+  
 public:
 
-  EnvironmentFactory();
+  EnvironmentFactory(b2World * _world);
   Environment * get(const std::string name);
 
 };

@@ -18,7 +18,7 @@ OBJECTS = $(addprefix $(OBJECT_DIR), $(patsubst %.cpp, %.o, $(SOURCES)))
 CC 			= g++
 LD 			= $(CC)
 CFLAGS	= $(addprefix -I, $(SOURCE_DIRS))
-LDFLAGS = -lsfml-window -lsfml-graphics -lsfml-system
+LDFLAGS = -lsfml-window -lsfml-graphics -lsfml-system -lbox2d
 ifeq ($(shell uname), Darwin)
 LDFLAGS += -framework CoreFoundation
 endif

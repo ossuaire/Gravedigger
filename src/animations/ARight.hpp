@@ -4,8 +4,7 @@
 #include <SFML/System.hpp>
 #include <math.h>
 #include "AAnimation.hpp"
-#include "CPosition.hpp"
-#include "CSpeed.hpp"
+#include "CPhysics.hpp"
 #include "CAcceleration.hpp"
 #include "CSprite.hpp"
 

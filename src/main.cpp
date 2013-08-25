@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include <Box2D/Box2D.h>
 #ifdef __APPLE__                            // to allow the usage of relative
 #include "CoreFoundation/CoreFoundation.h"  // path on Mac OS X
 #endif
@@ -36,15 +37,19 @@ int main()
   sf::RenderWindow window(sf::VideoMode(800, 600), "Gravedigger");
   window.setFramerateLimit(60);
 
+  // init the world of physics
+  b2Vec2 *  gravity = new b2Vec2(0.f,9.8f); // earth
+  b2World* world = new b2World(*gravity);
+
   // Character
-  CharacterFactory cf;
+  CharacterFactory cf(world);
   Character * gravedigger = cf.get("Gravedigger");
   CSprite * sprite = (CSprite *) gravedigger->getComponent("Sprite");
   CState * state = (CState*) gravedigger->getComponent("State");
   sprite->updatePosition();
 
   // Environment
-  EnvironmentFactory ef;
+  EnvironmentFactory ef(world);
   Environment * floor = ef.get("Floor");
   CSprite * fsprite = (CSprite *) floor->getComponent("Sprite");
   fsprite->updatePosition();
@@ -107,10 +112,12 @@ int main()
     // TODO register elements
     // Ask in collision handler item to draw
     state->update(elapsed.asMicroseconds());
+    
+    world->Step(elapsed.asSeconds(), 8,3 ); // Magics numbers
 
-    window.clear();
-    if (wasPressed) {
-      CPosition * position=(CPosition*)gravedigger->getComponent("Position");
+    window.clear(sf::Color(255,253,227));
+    /*    if (wasPressed) {
+      CPosition* position=(CPosition*)gravedigger->getComponent("Position");
       int x=  position->getX(); // already set to middle of character
       int y= position->getY() -
 	(sprite->getSprite()).getLocalBounds().height/2; 
@@ -123,15 +130,15 @@ int main()
       radiusStrength.setPosition(x,y); // TOFIX setOrigin
       window.draw(radiusHit);
       window.draw(radiusStrength);
-    }
+      } */
     window.draw(sprite->getSprite());
-    if (thrown) {
+    /* if (thrown) {
       GameObject * shovel;
       shovel = ((ACThrow*)gravedigger->getComponent("Throw"))->getItem();
       ((CState*)shovel->getComponent("State"))->update(elapsed.asMicroseconds());
       window.draw(((CSprite*)shovel->getComponent("Sprite"))->getSprite());
     }
-
+    */
     window.draw(fsprite->getSprite());
     window.display();
 

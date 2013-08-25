@@ -1,5 +1,9 @@
 #include "CSprite.hpp"
 
+#ifndef PIXELPERMETER
+#define PIXELPERMETER 47.5
+#endif
+
 CSprite::CSprite(GameObject * parent,
 		 const std::string texturePath,
 		 const float _scale,
@@ -37,18 +41,21 @@ void CSprite::setScale(const float _scale) {
 void CSprite::setDirection(const std::string direction) {
   if (direction.compare("left")==0) {
       sprite.setScale(-scale,scale);
-      setOrigin("middle","bottom");
+      setOrigin("middle","middle");
   }
   if (direction.compare("right")==0) {
     sprite.setScale(scale,scale);
-    setOrigin("middle","bottom");
+    setOrigin("middle","middle");
   }
 }
 
 // Call diz function implies an existing CPosition component
 void CSprite::updatePosition() {
-  CPosition * position =(CPosition *) parent->getComponent("Position");
-  sprite.setPosition( position->getX() , position->getY());
+  b2Body * body = ((CPhysics *) parent->getComponent("Physics"))->getBody();
+  //  b2Vec2 boundingbox = ((b2PolygonShape*) (body->GetFixtureList())->GetShape())->m_vertices[0];
+  std::cout<< ((body->GetPosition()).x)*PIXELPERMETER << ";"<< ((body->GetPosition()).y)*PIXELPERMETER <<std::endl;
+  sprite.setPosition(((body->GetPosition()).x)*PIXELPERMETER,
+		     ((body->GetPosition()).y)*PIXELPERMETER);
 }
 
 void CSprite::updateSubSprite(const int left,

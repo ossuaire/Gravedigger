@@ -10,23 +10,13 @@ void ARight::execute(const sf::Int64 elapsed) {
   sf::Int64 tempElapsedSum = getElapsedSum() + elapsed;
   CAcceleration * acceleration;
   acceleration = (CAcceleration *) parent->getComponent("Acceleration");
-  CSpeed * speed = (CSpeed *) parent->getComponent("Speed");
-  CPosition * position = (CPosition *) parent->getComponent("Position");
   CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
-
-  if (speed->getHSpeed() < -1.2) {
-    // #2a go back to 0                                                       
-    speed->setHSpeed((speed->getHSpeed())-((float)(speed->getHSpeed())/8.0));
-    position->setX((position->getX())+(speed->getHSpeed()));
-    sprite->updatePosition();
-  } else { 
-    // #2b add values
-    speed->setHSpeed((speed->getHSpeed())+
-		     ((float)elapsed/acceleration->getHAcceleration()*
-		      speed->getHSpeedMax()));
-    position->setX((position->getX())+ceil((speed->getHSpeed()))); // round sup
-    sprite->updatePosition();
-  }
+  
+  CPhysics * physics = (CPhysics *) parent->getComponent("Physics");
+  (physics->getBody())->ApplyLinearImpulse(b2Vec2(3,0),
+				   (physics->getBody())->GetWorldCenter());
+  
+  sprite->updatePosition();
 
   // #3 change sprites
   sf::Int64 temp = 0;

@@ -2,9 +2,11 @@
 #define __CSPRITE_H__
 
 #include <SFML/Graphics.hpp>
+#include <Box2D/Box2D.h>
 #include <string>
 #include <iostream>
 #include "CComponent.hpp"
+#include "CPhysics.hpp"
 #include "CPosition.hpp"
 
 class GameObject;

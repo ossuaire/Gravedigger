@@ -2,18 +2,19 @@
 #define __CHARACTERFACTORY_H__
 
 #include <SFML/System.hpp>
+#include <Box2D/Box2D.h>
 #include <iostream>
 #include <string>
 
 #include "ItemFactory.hpp"
 
 #include "Character.hpp"
+#include "CPhysics.hpp"
 #include "CPosition.hpp"
 #include "CSprite.hpp"
 #include "CSpeed.hpp"
 #include "CAcceleration.hpp"
 #include "CState.hpp"
-#include "CBoundingBox.hpp"
 
 #include "AAnimation.hpp"
 #include "AStand.hpp" 
@@ -29,9 +30,11 @@ class CharacterFactory {
 
 private:
 
+  b2World * world;
+
 public:
 
-  CharacterFactory();
+  CharacterFactory(b2World * _world);
 
   Character* get(const std::string name);
 
