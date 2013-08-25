@@ -3,10 +3,8 @@
 
 #include "Character.hpp"
 #include "AAnimation.hpp"
-#include "CPosition.hpp"
 #include "CSprite.hpp"
 #include "CSpeed.hpp"
-#include "CAcceleration.hpp"
 
 class AThrow : public AAnimation {
 

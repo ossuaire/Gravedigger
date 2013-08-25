@@ -13,7 +13,6 @@
 #include "CPosition.hpp"
 #include "CSprite.hpp"
 #include "CSpeed.hpp"
-#include "CAcceleration.hpp"
 #include "CState.hpp"
 
 #include "AAnimation.hpp"

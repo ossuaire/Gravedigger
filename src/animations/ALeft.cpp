@@ -9,15 +9,11 @@ void ALeft::execute(const sf::Int64 elapsed) {
   // #1 get all components
   sf::Int64 tempElapsedSum = getElapsedSum() + elapsed;
 
-  CAcceleration * acceleration;
-  acceleration = (CAcceleration *) parent->getComponent("Acceleration");
   CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
   
   CPhysics * physics = (CPhysics *) parent->getComponent("Physics");
   (physics->getBody())->ApplyLinearImpulse(b2Vec2(-3,0),
 				      (physics->getBody())->GetWorldCenter());
-  //  (physics->getBody())->ApplyForce( b2Vec2(-50,0),
-  //				    (physics->getBody())->GetWorldCenter());
   sprite->updatePosition();
 
   // #3 change sprites

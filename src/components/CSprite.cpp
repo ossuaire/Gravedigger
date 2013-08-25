@@ -52,8 +52,6 @@ void CSprite::setDirection(const std::string direction) {
 // Call diz function implies an existing CPosition component
 void CSprite::updatePosition() {
   b2Body * body = ((CPhysics *) parent->getComponent("Physics"))->getBody();
-  //  b2Vec2 boundingbox = ((b2PolygonShape*) (body->GetFixtureList())->GetShape())->m_vertices[0];
-  std::cout<< ((body->GetPosition()).x)*PIXELPERMETER << ";"<< ((body->GetPosition()).y)*PIXELPERMETER <<std::endl;
   sprite.setPosition(((body->GetPosition()).x)*PIXELPERMETER,
 		     ((body->GetPosition()).y)*PIXELPERMETER);
 }

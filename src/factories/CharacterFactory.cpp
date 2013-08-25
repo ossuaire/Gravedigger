@@ -46,11 +46,8 @@ Character * CharacterFactory::get(const std::string name) {
     //    sf::Time oneSec = sf::seconds(1.0)
     sf::Int64 thousandMillisec = sf::seconds(1.0).asMicroseconds(); 
 
-    CComponent * acceleration = new CAcceleration(character,
-						  2.0*thousandMillisec);
     character->addComponent("Physics",physics);
     character->addComponent("Sprite",sprite);
-    character->addComponent("Acceleration",acceleration);
 
     // Creating actions
     GameObject * shovel = iF.get("Shovel");

@@ -8,8 +8,7 @@ void ARight::execute(const sf::Int64 elapsed) {
   // TODO: Verif' they are existing components
   // #1 get all components
   sf::Int64 tempElapsedSum = getElapsedSum() + elapsed;
-  CAcceleration * acceleration;
-  acceleration = (CAcceleration *) parent->getComponent("Acceleration");
+
   CSprite * sprite = (CSprite *) parent->getComponent("Sprite");
   
   CPhysics * physics = (CPhysics *) parent->getComponent("Physics");

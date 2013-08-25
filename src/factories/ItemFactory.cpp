@@ -26,9 +26,6 @@ Item * ItemFactory::get(const std::string name) {
     move->addSubSprite(subsprite);
     ((CState*)state)->addAnimation("Move",move);
 
-    CComponent * accel=  new CAcceleration(item,2.0*microsec,0.75*microsec);
-
-    item->addComponent("Acceleration",accel);
     item->addComponent("State",state);
     item->addComponent("Speed",speed);
     item->addComponent("Position",position);

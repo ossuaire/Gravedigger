@@ -7,7 +7,6 @@
 #include "CSprite.hpp"
 #include "CState.hpp"
 #include "CSpeed.hpp"
-#include "CAcceleration.hpp"
 #include "AThrow.hpp"
 
 class ItemFactory {

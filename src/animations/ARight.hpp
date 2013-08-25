@@ -5,7 +5,6 @@
 #include <math.h>
 #include "AAnimation.hpp"
 #include "CPhysics.hpp"
-#include "CAcceleration.hpp"
 #include "CSprite.hpp"
 
 class ARight : public AAnimation {
