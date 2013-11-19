@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 6d4e192f28691df4ba4a5fbf8eee1a11
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 70
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: gd idle_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 200
+        width: 38
+        height: 44
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gd_walk_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 200
+        width: 51
+        height: 38
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gd walk_2
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 200
+        width: 50
+        height: 38
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gd walk_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 200
+        width: 50
+        height: 38
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gd idle_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 100
+        width: 38
+        height: 44
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gd fall_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 100
+        width: 51
+        height: 40
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gd fall_2
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 100
+        width: 51
+        height: 40
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gd fall_3
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 100
+        width: 51
+        height: 40
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gd jump_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 15
+        width: 50
+        height: 38
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gd jump_2
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 15
+        width: 54
+        height: 57
+      alignment: 7
+      pivot: {x: .5, y: 0}
+  spritePackingTag: 
+  userData: 
