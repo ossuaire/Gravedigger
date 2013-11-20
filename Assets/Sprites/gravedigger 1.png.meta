@@ -41,7 +41,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: gd idle_0
+    - name: gravedigger 1_0
       rect:
         serializedVersion: 2
         x: 31
@@ -49,8 +49,8 @@ TextureImporter:
         width: 38
         height: 44
       alignment: 7
-      pivot: {x: .5, y: 0}
-    - name: gd_walk_1
+      pivot: {x: 0, y: 0}
+    - name: gravedigger 1_1
       rect:
         serializedVersion: 2
         x: 128
@@ -58,8 +58,8 @@ TextureImporter:
         width: 51
         height: 38
       alignment: 7
-      pivot: {x: .5, y: 0}
-    - name: gd walk_2
+      pivot: {x: 0, y: 0}
+    - name: gravedigger 1_2
       rect:
         serializedVersion: 2
         x: 229
@@ -67,8 +67,8 @@ TextureImporter:
         width: 50
         height: 38
       alignment: 7
-      pivot: {x: .5, y: 0}
-    - name: gd walk_3
+      pivot: {x: 0, y: 0}
+    - name: gravedigger 1_3
       rect:
         serializedVersion: 2
         x: 329
@@ -76,8 +76,8 @@ TextureImporter:
         width: 50
         height: 38
       alignment: 7
-      pivot: {x: .5, y: 0}
-    - name: gd idle_1
+      pivot: {x: 0, y: 0}
+    - name: gravedigger 1_4
       rect:
         serializedVersion: 2
         x: 31
@@ -85,8 +85,8 @@ TextureImporter:
         width: 38
         height: 44
       alignment: 7
-      pivot: {x: .5, y: 0}
-    - name: gd fall_1
+      pivot: {x: 0, y: 0}
+    - name: gravedigger 1_5
       rect:
         serializedVersion: 2
         x: 122
@@ -94,17 +94,17 @@ TextureImporter:
         width: 51
         height: 40
       alignment: 7
-      pivot: {x: .5, y: 0}
-    - name: gd fall_2
+      pivot: {x: 0, y: 0}
+    - name: gravedigger 1_6
       rect:
         serializedVersion: 2
         x: 222
         y: 100
         width: 51
-        height: 40
+        height: 43
       alignment: 7
-      pivot: {x: .5, y: 0}
-    - name: gd fall_3
+      pivot: {x: 0, y: 0}
+    - name: gravedigger 1_7
       rect:
         serializedVersion: 2
         x: 322
@@ -112,8 +112,8 @@ TextureImporter:
         width: 51
         height: 40
       alignment: 7
-      pivot: {x: .5, y: 0}
-    - name: gd jump_1
+      pivot: {x: 0, y: 0}
+    - name: gravedigger 1_8
       rect:
         serializedVersion: 2
         x: 128
@@ -121,15 +121,15 @@ TextureImporter:
         width: 50
         height: 38
       alignment: 7
-      pivot: {x: .5, y: 0}
-    - name: gd jump_2
+      pivot: {x: 0, y: 0}
+    - name: gravedigger 1_9
       rect:
         serializedVersion: 2
         x: 231
-        y: 15
+        y: 14
         width: 54
-        height: 57
+        height: 59
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 
