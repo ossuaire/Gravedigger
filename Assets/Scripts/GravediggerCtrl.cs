@@ -15,7 +15,7 @@ public class GravediggerCtrl : MonoBehaviour {
 	public float speedY=0.0f;
 
 	private bool grounded;
-	private Transform groundCheck;
+	private Transform groundCheckL, groundCheckR;
 
 	
 	private Animator anim;
@@ -23,12 +23,15 @@ public class GravediggerCtrl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-		groundCheck = transform.Find("groundCheck");
+		groundCheckL = transform.FindChild("groundCheckL");
+		groundCheckR = transform.FindChild("groundCheckR");
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		grounded = Physics2D.Linecast (transform.position, groundCheck.position,1 << LayerMask.NameToLayer("Background"));
+		grounded = Physics2D.Linecast (transform.position, groundCheckR.position,1 << LayerMask.NameToLayer("Background"))
+			|| Physics2D.Linecast (transform.position, groundCheckL.position,1 << LayerMask.NameToLayer("Background"));
 		anim.SetBool ("Grounded", grounded);
 		float inputX = Input.GetAxis (axisName);
 		anim.SetFloat ("SpeedX", Mathf.Abs(inputX));
