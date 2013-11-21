@@ -49,7 +49,7 @@ TextureImporter:
         width: 38
         height: 44
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
     - name: gravedigger 1_1
       rect:
         serializedVersion: 2
@@ -58,7 +58,7 @@ TextureImporter:
         width: 51
         height: 38
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
     - name: gravedigger 1_2
       rect:
         serializedVersion: 2
@@ -67,7 +67,7 @@ TextureImporter:
         width: 50
         height: 38
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
     - name: gravedigger 1_3
       rect:
         serializedVersion: 2
@@ -76,7 +76,7 @@ TextureImporter:
         width: 50
         height: 38
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
     - name: gravedigger 1_4
       rect:
         serializedVersion: 2
@@ -85,7 +85,7 @@ TextureImporter:
         width: 38
         height: 44
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
     - name: gravedigger 1_5
       rect:
         serializedVersion: 2
@@ -94,16 +94,16 @@ TextureImporter:
         width: 51
         height: 40
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
     - name: gravedigger 1_6
       rect:
         serializedVersion: 2
         x: 222
         y: 100
         width: 51
-        height: 43
+        height: 40
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
     - name: gravedigger 1_7
       rect:
         serializedVersion: 2
@@ -112,7 +112,7 @@ TextureImporter:
         width: 51
         height: 40
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
     - name: gravedigger 1_8
       rect:
         serializedVersion: 2
@@ -121,7 +121,7 @@ TextureImporter:
         width: 50
         height: 38
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
     - name: gravedigger 1_9
       rect:
         serializedVersion: 2
@@ -130,6 +130,6 @@ TextureImporter:
         width: 54
         height: 59
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
   spritePackingTag: 
   userData: 
