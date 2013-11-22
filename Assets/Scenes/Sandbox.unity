@@ -236,6 +236,18 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -.0500000007
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9dfdf68d2c5230440ba94fac28196fbf, type: 2}
+      propertyPath: jumpForceInit
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9dfdf68d2c5230440ba94fac28196fbf, type: 2}
+      propertyPath: jumpForcePlus
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9dfdf68d2c5230440ba94fac28196fbf, type: 2}
+      propertyPath: jumpDelay
+      value: .5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dfdf68d2c5230440ba94fac28196fbf, type: 2}
   m_RootGameObject: {fileID: 590444658}
@@ -327,12 +339,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 500
-  jumpForce: 300
+  jumpForceInit: 130
+  jumpForcePlus: 30
   slowForce: 100
   axisName: Horizontal
   jumpButton: Jump
   maxSpeed: 4
-  jumpDelay: .100000001
+  jumpDelay: .5
   speedY: 0
 --- !u!50 &590444663
 Rigidbody2D:
