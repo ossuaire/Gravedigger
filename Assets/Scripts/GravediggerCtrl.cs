@@ -4,12 +4,14 @@ using System.Collections;
 public class GravediggerCtrl : MonoBehaviour {
 
 	public float moveForce = 500.0f;
-	public float jumpForce = 300.0f;
+	public float jumpForceInit = 130.0f;
+	public float jumpForcePlus = 30.0f;
 	public float slowForce = 100.0f;
 	public string axisName = "Horizontal";
 	public string jumpButton = "Jump";
 	public int maxSpeed = 4;
-	public float jumpDelay = 0.1f;
+
+	public float jumpDelay = 0.5f;
 	private float jumpTimer =0;
 
 	public float speedY=0.0f;
@@ -61,10 +63,14 @@ public class GravediggerCtrl : MonoBehaviour {
 	
 		// Jump
 		jumpTimer -= Time.deltaTime;
-		if (Input.GetButtonDown (jumpButton) && grounded && jumpTimer<0) {
-			jumpTimer=jumpDelay;
-			rigidbody2D.AddForce (transform.up * jumpForce);
-			anim.SetTrigger ("Jump");
+		if (Input.GetAxis (jumpButton)>0 ){
+		    if(grounded && jumpTimer<0) { // InitJump
+				jumpTimer=jumpDelay;
+				rigidbody2D.AddForce (transform.up * jumpForceInit);
+				anim.SetTrigger ("Jump");
+			} else if(jumpTimer>0){ // Press Longer Jump Higher
+				rigidbody2D.AddForce (transform.up * jumpForcePlus*jumpTimer);
+			}
 		}
 		this.speedY = rigidbody2D.velocity.y;
 		anim.SetFloat ("SpeedY", this.speedY);
