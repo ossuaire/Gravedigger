@@ -8,6 +8,7 @@
 /*.sln
 /*.suo
 /*.user
+/Gravedigger.userprefs
 
 # MacOShit
 .DS_Store
