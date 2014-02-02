@@ -9,6 +9,6 @@
 /*.suo
 /*.user
 /Gravedigger.userprefs
-
+*.unityproj
 # MacOShit
 .DS_Store

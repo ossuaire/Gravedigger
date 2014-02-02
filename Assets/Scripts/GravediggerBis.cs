@@ -6,10 +6,12 @@ public class GravediggerBis : MonoBehaviour
 {
 	// movement config
 	public float gravity = -15f;
-	public float runSpeed = 8f;
+	public float runSpeed = 5.5f;
 	public float groundDamping = 20f; // how fast do we change direction? higher means faster
 	public float inAirDamping = 5f;
-	public float jumpHeight = 3f;
+	public float jumpHeight = 0.5f;
+	public float attackSpeed =0.8f; 
+	public float jumpPressTime = 0.35f;
 	
 	[HideInInspector]
 	private float _rawMovementDirection = 1;
@@ -20,6 +22,18 @@ public class GravediggerBis : MonoBehaviour
 	private Animator _animator;
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
+
+	private float attackReset = 0f;
+	private bool attackPress = false;
+	private bool canReAttack = false;
+
+	private float jumpTime = 0f;
+
+	public GameObject laser;
+	public float shootCD = 1f;
+	private float shootTimer = 0f;
+
+
 	
 	
 	void Awake()
@@ -77,11 +91,16 @@ public class GravediggerBis : MonoBehaviour
 		}
 		
 		
-		// we can only jump whilst grounded
-		if( _controller.isGrounded && Input.GetKeyDown( KeyCode.UpArrow ) )
+		jumpTime -= Time.deltaTime;
+		if( Input.GetKey( KeyCode.UpArrow ) )
 		{
-			_velocity.y = Mathf.Sqrt( 2f * jumpHeight * -gravity );
-			_animator.SetTrigger("Jump");
+			if(_controller.isGrounded){// we can only jump whilst grounded
+				jumpTime=jumpPressTime;
+				_velocity.y = Mathf.Sqrt( 2f * jumpHeight * -gravity );
+				_animator.SetTrigger("Jump");
+			}else if(jumpTime>0){
+				_velocity.y = Mathf.Sqrt( 2f * jumpHeight * -gravity );
+			}
 		}
 		
 		
@@ -94,10 +113,45 @@ public class GravediggerBis : MonoBehaviour
 		
 		_controller.move( _velocity * Time.deltaTime );
 
+		attackReset -= Time.deltaTime;
+		if (Input.GetAxis ("Fire1")>0) {
+
+			if (attackReset <= 0 && !attackPress) {
+				_animator.SetTrigger ("Attack");
+				attackReset = attackSpeed;
+			} else if (canReAttack && !attackPress) {
+				_animator.SetTrigger ("Attack2");
+				canReAttack = false;
+			}
+			attackPress = true;
+		} else {
+			attackPress = false;
+		}
+		shootTimer -= Time.deltaTime;
+		if(Input.GetAxis("Fire2")>0 && shootTimer<0){
+			shootTimer=shootCD;
+			_animator.SetTrigger("Fire");
+			Vector3 direction = transform.localScale.x>=0 ? Vector2.right : - Vector2.right;
+			Quaternion directionQuat = Quaternion.LookRotation(direction);
+			Instantiate(laser,transform.position + new Vector3(0.5f,0.55f), directionQuat);
+		}
+
+
+
+
 		_animator.SetFloat("SpeedX", Mathf.Abs(_velocity.x));
 		_animator.SetFloat("SpeedY", _velocity.y);
 		_animator.SetBool ("Grounded",_controller.isGrounded);
 
 	}
+
+	public void EEnableReAtacck(){
+		canReAttack = true;
+	}
+
+	public void EDisableReAtacck(){
+		canReAttack = false;
+	}
+
 	
 }

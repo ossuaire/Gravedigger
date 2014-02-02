@@ -5,6 +5,8 @@ TagManager:
   tags:
   - 
   - GD
+  - Weapons
+  - Ennemy
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -16,9 +18,9 @@ TagManager:
   Builtin Layer 7: 
   User Layer 8: Ground
   User Layer 9: OneWay
-  User Layer 10: 
-  User Layer 11: 
-  User Layer 12: 
+  User Layer 10: Ennemy
+  User Layer 11: Weapons
+  User Layer 12: Cat
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 
@@ -42,7 +44,7 @@ TagManager:
   - name: Background
     userID: 1
     uniqueID: 4235534915
-    locked: 0
+    locked: 1
   - name: Default
     userID: 0
     uniqueID: 0

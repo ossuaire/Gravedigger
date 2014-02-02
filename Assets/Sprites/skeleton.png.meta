@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 0f013cde5b6ea1b418e476fd9f178049
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 0
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 50
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: skeleton_idleing_4
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 3
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_eating_1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 154
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_eating_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 154
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_eating_3
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 154
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_walking_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 110
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_walking_2
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 110
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_walking_3
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 110
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_walking_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 110
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_walking_5
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 110
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_walking_6
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 110
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_walking_7
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 110
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_idleing_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_idleing_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 3
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: skeleton_idleing_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 3
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 
