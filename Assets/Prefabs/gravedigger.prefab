@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: gravedigger
+  m_Name: Gravedigger
   m_TagString: GD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,6 +257,9 @@ MonoBehaviour:
   inAirDamping: 5
   jumpHeight: 2
   attackSpeed: 1
+  jumpPressTime: .349999994
+  laser: {fileID: 0}
+  shootCD: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

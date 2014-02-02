@@ -15,7 +15,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: skeleton
+  m_Name: Skeleton
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

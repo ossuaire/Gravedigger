@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cat_catchingbee
+  m_Name: Skeleton_Attack
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -18,7 +18,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300008, guid: 995cc795d059a89478ee334fb295d4bb, type: 3}
+      value: {fileID: 21300002, guid: 0f013cde5b6ea1b418e476fd9f178049, type: 3}
+    - time: .0833333358
+      value: {fileID: 21300004, guid: 0f013cde5b6ea1b418e476fd9f178049, type: 3}
+    - time: .166666672
+      value: {fileID: 21300006, guid: 0f013cde5b6ea1b418e476fd9f178049, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -31,7 +35,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .0166666675
+    m_StopTime: .183333337
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

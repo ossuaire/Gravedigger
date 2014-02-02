@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cat
+  m_Name: Cat
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: Walking
@@ -169,7 +169,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cat_idleing
+  m_Name: Cat_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -184,7 +184,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cat_sleeping
+  m_Name: Cat_Sleep
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -199,7 +199,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cat_catchingbee
+  m_Name: Cat_CatchBee
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -214,7 +214,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cat_indabox
+  m_Name: Cat_PlayInBox
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -229,7 +229,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cat_walking
+  m_Name: Cat_Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -244,7 +244,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cat_scratching
+  m_Name: Cat_Scratch
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -273,24 +273,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110244582}
-      second: []
-    data:
-      first: {fileID: 110298953}
-      second: []
-    data:
-      first: {fileID: 110236920}
-      second: []
-    data:
-      first: {fileID: 110259027}
-      second: []
-    data:
-      first: {fileID: 110270729}
-      second: []
-    data:
-      first: {fileID: 110200000}
-      second: []
-    data:
       first: {fileID: 0}
       second:
       - {fileID: 110100000}
@@ -299,6 +281,24 @@ StateMachine:
       - {fileID: 110137513}
       - {fileID: 110184030}
       - {fileID: 110199450}
+    data:
+      first: {fileID: 110200000}
+      second: []
+    data:
+      first: {fileID: 110270729}
+      second: []
+    data:
+      first: {fileID: 110259027}
+      second: []
+    data:
+      first: {fileID: 110236920}
+      second: []
+    data:
+      first: {fileID: 110298953}
+      second: []
+    data:
+      first: {fileID: 110244582}
+      second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 0, y: 72, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cat_walking
+  m_Name: Cat_Idle
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -18,7 +18,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300002, guid: 995cc795d059a89478ee334fb295d4bb, type: 3}
+      value: {fileID: 21300010, guid: 995cc795d059a89478ee334fb295d4bb, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212

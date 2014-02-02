@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: skeleton_idle
+  m_Name: Butcher_Walk
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -18,7 +18,19 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300022, guid: 0f013cde5b6ea1b418e476fd9f178049, type: 3}
+      value: {fileID: 21300004, guid: 5561480d163a28f41b44e33a115ab074, type: 3}
+    - time: .25
+      value: {fileID: 21300002, guid: 5561480d163a28f41b44e33a115ab074, type: 3}
+    - time: .5
+      value: {fileID: 21300004, guid: 5561480d163a28f41b44e33a115ab074, type: 3}
+    - time: .75
+      value: {fileID: 21300006, guid: 5561480d163a28f41b44e33a115ab074, type: 3}
+    - time: 1
+      value: {fileID: 21300004, guid: 5561480d163a28f41b44e33a115ab074, type: 3}
+    - time: 1.25
+      value: {fileID: 21300002, guid: 5561480d163a28f41b44e33a115ab074, type: 3}
+    - time: 1.5
+      value: {fileID: 21300004, guid: 5561480d163a28f41b44e33a115ab074, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -31,7 +43,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .0833333358
+    m_StopTime: 1.58333337
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

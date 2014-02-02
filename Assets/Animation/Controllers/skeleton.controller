@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: skeleton
+  m_Name: Skeleton
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: Walking
@@ -229,7 +229,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: skeleton_awaking
+  m_Name: Skeleton_Awake
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -244,7 +244,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: skeleton_idleing
+  m_Name: Skeleton_Lie
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -259,7 +259,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: skeleton_walking
+  m_Name: Skeleton_Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -274,7 +274,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: skeleton_eating
+  m_Name: Skeleton_Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:

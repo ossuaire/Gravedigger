@@ -138,7 +138,7 @@ GameObject:
   - 50: {fileID: 291631884}
   - 61: {fileID: 291631883}
   m_Layer: 12
-  m_Name: Cat_WIP_0
+  m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -676,7 +676,7 @@ GameObject:
   - 61: {fileID: 1236345292}
   - 114: {fileID: 1236345298}
   m_Layer: 0
-  m_Name: skeleton
+  m_Name: Skeleton
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
