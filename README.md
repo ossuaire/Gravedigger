@@ -2,11 +2,11 @@ Gravedigger
 ===========
 
 <p align="center">
-<img src="/res/scenes/scene-2.png"></img>
+<img src="/img/scene-2.png"></img>
 </p>
 
 <p align="center">
-<img src="/res/scenes/scene-1.png"></img>
+<img src="/img/scene-1.png"></img>
 </p>
 
 Description
