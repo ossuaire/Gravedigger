@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 6d4e192f28691df4ba4a5fbf8eee1a11
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 0
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 50
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: gravedigger 1_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 300
+        width: 38
+        height: 44
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 300
+        width: 51
+        height: 38
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_2
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 300
+        width: 50
+        height: 38
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 300
+        width: 50
+        height: 38
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_4
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 200
+        width: 38
+        height: 44
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_5
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 200
+        width: 51
+        height: 40
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_6
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 200
+        width: 51
+        height: 40
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_7
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 200
+        width: 51
+        height: 40
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_8
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 100
+        width: 54
+        height: 52
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_9
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 100
+        width: 53
+        height: 59
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_10
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 58
+        height: 73
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_11
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 58
+        height: 68
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_12
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gravedigger 1_13
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 60
+        height: 62
+      alignment: 7
+      pivot: {x: .5, y: 0}
+  spritePackingTag: 
+  userData: 
