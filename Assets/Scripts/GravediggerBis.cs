@@ -32,6 +32,7 @@ public class GravediggerBis : MonoBehaviour
 	public GameObject laser;
 	public float shootCD = 1f;
 	private float shootTimer = 0f;
+	private bool shoot = false;
 
 
 	
@@ -55,67 +56,65 @@ public class GravediggerBis : MonoBehaviour
 	}
 	
 	
-	// the Update loop contains a very simple example of moving the character around and controlling the animation
 	void Update()
 	{
+		move ();
+		attack ();
+	}
+
+	private void move(){
 		// grab our current _velocity to use as a base for all calculations
 		_velocity = _controller.velocity;
 		
-		if( _controller.isGrounded )
+		if (_controller.isGrounded)
 			_velocity.y = 0;
 		
-		if( Input.GetKey( KeyCode.RightArrow ) )
-		{
+		if (Input.GetKey (KeyCode.RightArrow)) {
 			normalizedHorizontalSpeed = 1;
-			if( transform.localScale.x < 0f )
-				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
-			
-			//if( _controller.isGrounded )
-				//_animator.Play( Animator.StringToHash( "Run" ) );
-		}
-		else if( Input.GetKey( KeyCode.LeftArrow ) )
-		{
+			if (transform.localScale.x < 0f) {
+				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+			}
+		} else if (Input.GetKey (KeyCode.LeftArrow)) {
 			normalizedHorizontalSpeed = -1;
-			if( transform.localScale.x > 0f )
-				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
-			
-			if( _controller.isGrounded )
-				_animator.SetTrigger("Grounded");
-		}
-		else
-		{
+			if (transform.localScale.x > 0f) {
+				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+			}
+			if (_controller.isGrounded) {
+				_animator.SetTrigger ("Grounded");
+			}
+		} else {
 			normalizedHorizontalSpeed = 0;
-			
-			//if( _controller.isGrounded )
-			//	_animator.Play( Animator.StringToHash( "Idle" ) );
 		}
-		
-		
+
 		jumpTime -= Time.deltaTime;
-		if( Input.GetKey( KeyCode.UpArrow ) )
-		{
-			if(_controller.isGrounded){// we can only jump whilst grounded
-				jumpTime=jumpPressTime;
-				_velocity.y = Mathf.Sqrt( 2f * jumpHeight * -gravity );
-				_animator.SetTrigger("Jump");
-			}else if(jumpTime>0){
-				_velocity.y = Mathf.Sqrt( 2f * jumpHeight * -gravity );
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			if (_controller.isGrounded) {// we can only jump whilst grounded
+				jumpTime = jumpPressTime;
+				_velocity.y = Mathf.Sqrt (2f * jumpHeight * -gravity);
+				_animator.SetTrigger ("Jump");
+			} else if (jumpTime > 0) {
+				_velocity.y = Mathf.Sqrt (2f * jumpHeight * -gravity);
 			}
 		}
 		
 		
 		// apply horizontal speed smoothing it
 		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
-		_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * _rawMovementDirection * runSpeed, Time.deltaTime * smoothedMovementFactor );
+		_velocity.x = Mathf.Lerp (_velocity.x, normalizedHorizontalSpeed * _rawMovementDirection * runSpeed, Time.deltaTime * smoothedMovementFactor);
 		
 		// apply gravity before moving
 		_velocity.y += gravity * Time.deltaTime;
 		
-		_controller.move( _velocity * Time.deltaTime );
+		_controller.move (_velocity * Time.deltaTime);
 
+		_animator.SetFloat("SpeedX", Mathf.Abs(_velocity.x));
+		_animator.SetFloat("SpeedY", _velocity.y);
+		_animator.SetBool ("Grounded",_controller.isGrounded);
+	}
+
+	private void attack(){
 		attackReset -= Time.deltaTime;
-		if (Input.GetAxis ("Fire1")>0) {
-
+		if (Input.GetAxis ("Fire1") > 0) {
 			if (attackReset <= 0 && !attackPress) {
 				_animator.SetTrigger ("Attack");
 				attackReset = attackSpeed;
@@ -127,22 +126,20 @@ public class GravediggerBis : MonoBehaviour
 		} else {
 			attackPress = false;
 		}
+		if(shoot){
+			Vector3 direction = transform.localScale.x >= 0 ? Vector2.right : - Vector2.right;
+			Quaternion directionQuat = Quaternion.LookRotation (direction);
+			Vector3 position = transform.FindChild ("LaserSpawnPosition").position;
+			Instantiate (laser, position, directionQuat);
+			shoot=false;
+		}
+		
 		shootTimer -= Time.deltaTime;
 		if(Input.GetAxis("Fire2")>0 && shootTimer<0){
 			shootTimer=shootCD;
 			_animator.SetTrigger("Fire");
-			Vector3 direction = transform.localScale.x>=0 ? Vector2.right : - Vector2.right;
-			Quaternion directionQuat = Quaternion.LookRotation(direction);
-			Instantiate(laser,transform.position + new Vector3(0.5f,0.55f), directionQuat);
+			shoot = true;
 		}
-
-
-
-
-		_animator.SetFloat("SpeedX", Mathf.Abs(_velocity.x));
-		_animator.SetFloat("SpeedY", _velocity.y);
-		_animator.SetBool ("Grounded",_controller.isGrounded);
-
 	}
 
 	public void EEnableReAtacck(){

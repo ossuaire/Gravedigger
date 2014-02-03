@@ -108,7 +108,6 @@ public class Cat : MonoBehaviour {
 	// 4 - Scratching
 	// 5 - Indabox
 	void doCurrentState() {
-		print ("currentState"+currentState);
 		switch (currentState) {
 		case 0:
 			walking();
