@@ -288,6 +288,7 @@ MonoBehaviour:
   attackSpeed: .800000012
   jumpPressTime: .349999994
   laser: {fileID: 100000, guid: db69b38937b279e4a8fe02f2fb8858eb, type: 2}
+  particle: {fileID: 19800000, guid: 6cdb270cd9ce88f4d89a2ff6affc5eea, type: 2}
   shootCD: 1
 --- !u!114 &11400004
 MonoBehaviour:

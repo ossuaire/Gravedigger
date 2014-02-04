@@ -30,9 +30,12 @@ public class GravediggerBis : MonoBehaviour
 	private float jumpTime = 0f;
 
 	public GameObject laser;
+	public ParticleSystem particle;
 	public float shootCD = 1f;
 	private float shootTimer = 0f;
 	private bool shoot = false;
+	private bool fireButtonReleased = true;
+	private ParticleSystem particleInstance;
 
 
 	
@@ -126,19 +129,34 @@ public class GravediggerBis : MonoBehaviour
 		} else {
 			attackPress = false;
 		}
-		if(shoot){
+				
+		shootTimer -= Time.deltaTime;
+		if(fireButtonReleased && Input.GetAxis("Fire2")>0 && shootTimer<0){
+			shootTimer=shootCD;
+			_animator.SetTrigger("Fire");
 			Vector3 direction = transform.localScale.x >= 0 ? Vector2.right : - Vector2.right;
 			Quaternion directionQuat = Quaternion.LookRotation (direction);
 			Vector3 position = transform.FindChild ("LaserSpawnPosition").position;
-			Instantiate (laser, position, directionQuat);
-			shoot=false;
+			// Instantiate (laser, position, directionQuat);
+			shoot=true;
+			particleInstance =  Instantiate (particle,position,directionQuat) as ParticleSystem;
+			fireButtonReleased = false;
+			Debug.Log ("Fire pressed");
 		}
-		
-		shootTimer -= Time.deltaTime;
-		if(Input.GetAxis("Fire2")>0 && shootTimer<0){
-			shootTimer=shootCD;
-			_animator.SetTrigger("Fire");
-			shoot = true;
+
+		 if (!fireButtonReleased && shoot && (Input.GetAxis ("Fire2") <= 0 || particleInstance==null || !particleInstance.IsAlive())) {
+			_animator.SetTrigger("Fired");
+			Vector3 direction = transform.localScale.x >= 0 ? Vector2.right : - Vector2.right;
+			Quaternion directionQuat = Quaternion.LookRotation (direction);
+			Vector3 position = transform.FindChild ("LaserSpawnPosition").position;
+			GameObject laserShoot=Instantiate (laser, position, directionQuat) as GameObject ;
+			Destroy(laserShoot, 1);
+			Destroy(particleInstance.gameObject);
+			Debug.Log ("fire released");
+			shoot = false;
+		}
+		if(Input.GetAxis ("Fire2") <= 0){
+			fireButtonReleased = true;
 		}
 	}
 
