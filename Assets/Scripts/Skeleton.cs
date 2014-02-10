@@ -20,7 +20,7 @@ public class Skeleton : MonoBehaviour {
 
 	// The speed of the skeleton.
 	public float speed = 2.0f;
-	
+
 	// Reference to the player's transform to calculate the distance between the player and the skeleton.
 	private Transform player;
 	// The direction of the skeleton, right or left.
@@ -29,46 +29,62 @@ public class Skeleton : MonoBehaviour {
 	private Animator animator;
 
 	private bool isAwake;
+	private bool isPushBack;
 
 	// This function will move the skeleton toward the player, turning the sprite in the good direction.
 	void moveTowardPlayer() {
+		setTransformFacingPlayer ();
+		transform.Translate (direction * speed * Time.deltaTime, 0, 0);		
+	}
+
+	void setTransformFacingPlayer() {
 		if (transform.position.x > player.position.x) {
 			direction = -1;
 		} else {
 			direction = 1;
 		}
 		transform.localScale = new Vector3 (direction, 1, 1);
-		transform.Translate (direction * speed * Time.deltaTime, 0, 0);		
 	}
 
+	private PushBack pushBack;
 
+	void isPushedAwayFromPlayer() {
+		setTransformFacingPlayer ();
+		transform.Translate (-direction * speed * Time.deltaTime, speed * Time.deltaTime, 0);		
+	}
+	
 	// Use this for initialization
 	void Start () {
 		// Setting up the reference to player
 		player = GameObject.FindGameObjectWithTag("GD").transform;
 		animator = GetComponent<Animator>();
+		pushBack = this.GetComponent<PushBack> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		float xDistance = Mathf.Abs (transform.position.x - player.position.x);
-		// State "Attacking"
-		if (xDistance <= distanceToAttack) {
-			animator.SetTrigger ("Eating");
-		// State "Awaking"
-		} else if (!isAwake && xDistance <= distanceToAwake) {
-			animator.SetTrigger ("Awaking");
-			isAwake = true;
-		// State "Walking"
-		} else if (isAwake && xDistance <= distanceToIdle) {
-			animator.SetTrigger ("Walking");
-			// TODO: Need to check if the animator IS in the "Walking" state to make him really move,
-			// Because it can still be in the "Awaking" state, where it shouldn't already move.
-			moveTowardPlayer();
-		// State Idle-ing
-		} else if (isAwake && xDistance > distanceToIdle) {
-			isAwake = false;
-			animator.SetTrigger ("Idle-ing");
+		if (pushBack.isPushed ()) {
+			isPushedAwayFromPlayer();
+		} else {
+			float xDistance = Mathf.Abs (transform.position.x - player.position.x);
+			// State "Attacking"
+			if (xDistance <= distanceToAttack) {
+				animator.SetTrigger ("Eating");
+			// State "Awaking"
+			} else if (!isAwake && xDistance <= distanceToAwake) {
+				animator.SetTrigger ("Awaking");
+				isAwake = true;
+			// State "Walking"
+			} else if (isAwake && xDistance <= distanceToIdle) {
+				animator.SetTrigger ("Walking");
+				// TODO: Need to check if the animator IS in the "Walking" state to make him really move,
+				// Because it can still be in the "Awaking" state, where it shouldn't already move.
+				moveTowardPlayer();
+			// State Idle-ing
+			} else if (isAwake && xDistance > distanceToIdle) {
+				isAwake = false;
+				animator.SetTrigger ("Idle-ing");
+			}
 		}
 	}
 }

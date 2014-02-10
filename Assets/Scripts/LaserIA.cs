@@ -19,6 +19,9 @@ public class LaserIA : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Ennemy")) {
 			LifeManager lf =  other.gameObject.GetComponent<LifeManager>();
 			lf.hit();
+
+			PushBack pb = other.gameObject.GetComponent<PushBack>();
+			pb.push();
 		}
 		GameObject.Destroy (this.gameObject);
 	}

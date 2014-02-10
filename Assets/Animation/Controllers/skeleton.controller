@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Skeleton
+  m_Name: skeleton
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: Walking
@@ -320,28 +320,28 @@ StateMachine:
       first: {fileID: 0}
       second: []
     data:
-      first: {fileID: 110278448}
-      second:
-      - {fileID: 110153361}
-    data:
       first: {fileID: 110200000}
       second:
       - {fileID: 110107126}
       - {fileID: 110105585}
-    data:
-      first: {fileID: 110256602}
-      second:
-      - {fileID: 110184461}
-      - {fileID: 110188283}
     data:
       first: {fileID: 110215136}
       second:
       - {fileID: 110101968}
       - {fileID: 110125773}
     data:
+      first: {fileID: 110256602}
+      second:
+      - {fileID: 110184461}
+      - {fileID: 110188283}
+    data:
       first: {fileID: 110256888}
       second:
       - {fileID: 110159420}
+    data:
+      first: {fileID: 110278448}
+      second:
+      - {fileID: 110153361}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 216, y: 48, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
