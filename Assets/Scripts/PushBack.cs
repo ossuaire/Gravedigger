@@ -4,9 +4,9 @@ using System.Collections;
 public class PushBack : MonoBehaviour {
 
 	private bool p;
-	public int maxFramesPushed = 20;
+	public float maxTimeBeeingPushed = 0.4f;
 
-	private int framesPushed;
+	private float startingTime;
 
 	// Use this for initialization
 	void Start () {
@@ -15,28 +15,21 @@ public class PushBack : MonoBehaviour {
 
 	public void push() {
 		p = true;
+		startingTime = Time.time;
 	}
 
 	public void endPush() {
 		p = false;
-		framesPushed = 0;
 	}
 
 	public bool isPushed() {
 		return p;
 	}
 
-	public int numberOfFramesPushed() {
-		return framesPushed;
-	}
-
 	// Update is called once per frame
 	void Update () {
-		if (p) {
-			framesPushed++;
-			if (framesPushed > maxFramesPushed){
-				endPush ();
-			}
+		if (p && ( Time.time - startingTime > maxTimeBeeingPushed)) {
+			endPush ();
 		}
 	}
 }
