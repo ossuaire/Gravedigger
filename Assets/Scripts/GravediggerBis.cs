@@ -37,6 +37,12 @@ public class GravediggerBis : MonoBehaviour
 	private bool fireButtonReleased = true;
 	private ParticleSystem particleInstance;
 
+	private bool canMove = true;
+	public float canMoveDelay = 0.2f;
+	private float canMoveTimer = 0f;
+
+	private Transform laserSpawnTransfrom;
+
 
 	
 	
@@ -45,6 +51,8 @@ public class GravediggerBis : MonoBehaviour
 		_animator = GetComponent<Animator>();
 		_controller = GetComponent<CharacterController2D>();
 		_controller.onControllerCollidedEvent += onControllerCollider;
+
+		laserSpawnTransfrom = transform.FindChild ("LaserSpawnPosition");
 	}
 	
 	
@@ -71,7 +79,9 @@ public class GravediggerBis : MonoBehaviour
 		
 		if (_controller.isGrounded)
 			_velocity.y = 0;
-		
+		if (!canMove) {
+			// TODO : make control at zero
+		}
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			normalizedHorizontalSpeed = 1;
 			if (transform.localScale.x < 0f) {
@@ -90,7 +100,7 @@ public class GravediggerBis : MonoBehaviour
 		}
 
 		jumpTime -= Time.deltaTime;
-		if (Input.GetKey (KeyCode.UpArrow)) {
+		if (Input.GetKey (KeyCode.UpArrow) && canMove) {
 			if (_controller.isGrounded) {// we can only jump whilst grounded
 				jumpTime = jumpPressTime;
 				_velocity.y = Mathf.Sqrt (2f * jumpHeight * -gravity);
@@ -103,8 +113,11 @@ public class GravediggerBis : MonoBehaviour
 		
 		// apply horizontal speed smoothing it
 		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
-		_velocity.x = Mathf.Lerp (_velocity.x, normalizedHorizontalSpeed * _rawMovementDirection * runSpeed, Time.deltaTime * smoothedMovementFactor);
-		
+		if (canMove || !_controller.isGrounded) {
+			_velocity.x = Mathf.Lerp (_velocity.x, normalizedHorizontalSpeed * _rawMovementDirection * runSpeed, Time.deltaTime * smoothedMovementFactor);
+		} else {
+			_velocity.x = 0f;
+		}
 		// apply gravity before moving
 		_velocity.y += gravity * Time.deltaTime;
 		
@@ -131,33 +144,37 @@ public class GravediggerBis : MonoBehaviour
 		}
 				
 		shootTimer -= Time.deltaTime;
+		canMoveTimer -= Time.deltaTime;
 		if(fireButtonReleased && Input.GetAxis("Fire2")>0 && shootTimer<0){
 			shootTimer=shootCD;
+			canMoveTimer=canMoveDelay;
 			_animator.SetTrigger("Fire");
 			Vector3 direction = transform.localScale.x >= 0 ? Vector2.right : - Vector2.right;
 			Quaternion directionQuat = Quaternion.LookRotation (direction);
-			Vector3 position = transform.FindChild ("LaserSpawnPosition").position;
-			// Instantiate (laser, position, directionQuat);
 			shoot=true;
-			particleInstance =  Instantiate (particle,position,directionQuat) as ParticleSystem;
+			particleInstance =  Instantiate (particle,laserSpawnTransfrom.position,directionQuat) as ParticleSystem;
+			particleInstance.gameObject.transform.parent = laserSpawnTransfrom ;
 			fireButtonReleased = false;
-			Debug.Log ("Fire pressed");
 		}
 
-		 if (!fireButtonReleased && shoot && (Input.GetAxis ("Fire2") <= 0 || particleInstance==null || !particleInstance.IsAlive())) {
+		if (!fireButtonReleased && shoot && (Input.GetAxis ("Fire2") <= 0 || particleInstance==null || !particleInstance.IsAlive())) {
+			canMove = true; 
+			canMoveTimer = canMoveDelay;
 			_animator.SetTrigger("Fired");
 			Vector3 direction = transform.localScale.x >= 0 ? Vector2.right : - Vector2.right;
 			Quaternion directionQuat = Quaternion.LookRotation (direction);
-			Vector3 position = transform.FindChild ("LaserSpawnPosition").position;
-			GameObject laserShoot=Instantiate (laser, position, directionQuat) as GameObject ;
+			GameObject laserShoot=Instantiate (laser, laserSpawnTransfrom.position, directionQuat) as GameObject ;
 			Destroy(laserShoot, 1);
 			Destroy(particleInstance.gameObject);
-			Debug.Log ("fire released");
 			shoot = false;
 		}
-		if(Input.GetAxis ("Fire2") <= 0){
+		if (Input.GetAxis ("Fire2") <= 0) {
 			fireButtonReleased = true;
 		}
+		if (!fireButtonReleased && shoot && canMoveTimer < 0){
+			canMove = false;
+		}
+
 	}
 
 	public void EEnableReAtacck(){
