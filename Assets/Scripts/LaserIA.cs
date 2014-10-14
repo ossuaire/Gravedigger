@@ -16,6 +16,7 @@ public class LaserIA : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log ("triger");
 		if (other.gameObject.CompareTag ("Ennemy")) {
 			LifeManager lf =  other.gameObject.GetComponent<LifeManager>();
 			lf.hit();
@@ -24,5 +25,9 @@ public class LaserIA : MonoBehaviour {
 			pb.push();
 		}
 		GameObject.Destroy (this.gameObject);
+	}
+
+	void OnCollisionEnter2D(Collision2D other) {
+		Debug.Log ("colide");
 	}
 }

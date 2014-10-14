@@ -14,19 +14,13 @@ public class CollisonsHandler : MonoBehaviour {
 
 	}
 	
-	void OnCollisionEnter2D(Collision2D other) {
-		if (other.gameObject.CompareTag ("Ennemy")) {
-			LifeManager lm= other.gameObject.GetComponent<LifeManager>();
-			lm.hit ();
-		}
-		Debug.Log ("Collision");
-	}
-
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.CompareTag ("Ennemy")) {
 			LifeManager lm= other.gameObject.GetComponent<LifeManager>();
 			lm.hit ();
+			PushBack pb = other.gameObject.GetComponent<PushBack>();
+			pb.push();
 		}
 		Debug.Log ("trigger");
-		}
+	}
 }

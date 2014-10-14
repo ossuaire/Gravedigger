@@ -1259,7 +1259,7 @@ GameObject:
   - 61: {fileID: 119122967}
   - 114: {fileID: 119122966}
   - 114: {fileID: 119122973}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: skeleton
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
@@ -1638,6 +1638,14 @@ Prefab:
     - target: {fileID: 400000, guid: a601a746242b37f4ba82939941a75133, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: a601a746242b37f4ba82939941a75133, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a601a746242b37f4ba82939941a75133, type: 2}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a601a746242b37f4ba82939941a75133, type: 2}
