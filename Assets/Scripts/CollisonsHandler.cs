@@ -19,6 +19,14 @@ public class CollisonsHandler : MonoBehaviour {
 			LifeManager lm= other.gameObject.GetComponent<LifeManager>();
 			lm.hit ();
 		}
-		Debug.Log ("trigger");
+		Debug.Log ("Collision");
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.CompareTag ("Ennemy")) {
+			LifeManager lm= other.gameObject.GetComponent<LifeManager>();
+			lm.hit ();
+		}
+		Debug.Log ("trigger");
+		}
 }
