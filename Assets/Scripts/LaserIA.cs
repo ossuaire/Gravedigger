@@ -6,12 +6,6 @@ public class LaserIA : MonoBehaviour {
 	public float speed = 10.0f;
 	public Color laserColor = new Color (184f/255f, 11f/255f, 140f/255f);
 
-	private bool needDestroy = false;
-	void Start(){
-
-	}
-	
-	// Update is called once per frame
 	void Update () {
 		renderer.material.color = laserColor;
 		transform.position += transform.forward * speed * Time.deltaTime;
