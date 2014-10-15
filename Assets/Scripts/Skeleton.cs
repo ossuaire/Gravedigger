@@ -87,6 +87,7 @@ public class Skeleton : MonoBehaviour {
 			}
 		}
 	}
+	
 }
 
 

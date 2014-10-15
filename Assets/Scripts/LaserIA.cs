@@ -5,7 +5,9 @@ public class LaserIA : MonoBehaviour {
 
 	public float speed = 10.0f;
 	public Color laserColor = new Color (184f/255f, 11f/255f, 140f/255f);
-	void start(){
+
+	private bool needDestroy = false;
+	void Start(){
 
 	}
 	
@@ -26,8 +28,5 @@ public class LaserIA : MonoBehaviour {
 		}
 		GameObject.Destroy (this.gameObject);
 	}
-
-	void OnCollisionEnter2D(Collision2D other) {
-		Debug.Log ("colide");
-	}
+	
 }
