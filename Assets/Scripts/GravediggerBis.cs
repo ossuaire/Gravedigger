@@ -35,6 +35,7 @@ public class GravediggerBis : MonoBehaviour
 	private float shootTimer = 0f;
 	private bool shoot = false;
 	private bool fireButtonReleased = true;
+	private bool jumpButtonReleased = true;
 	private ParticleSystem particleInstance;
 
 	private bool canMove = true;
@@ -98,10 +99,11 @@ public class GravediggerBis : MonoBehaviour
 		} else {
 			normalizedHorizontalSpeed = 0;
 		}
+		
 
 		jumpTime -= Time.deltaTime;
 		if (Input.GetKey (KeyCode.UpArrow) && canMove) {
-			if (_controller.isGrounded) {// we can only jump whilst grounded
+			if (_controller.isGrounded && jumpButtonReleased) {// we can only jump whilst grounded
 				jumpTime = jumpPressTime;
 				_velocity.y = Mathf.Sqrt (2f * jumpHeight * -gravity);
 				_animator.SetTrigger ("Jump");
@@ -111,7 +113,8 @@ public class GravediggerBis : MonoBehaviour
 		} else {
 			jumpTime = 0;
 		}
-		
+
+		jumpButtonReleased = !Input.GetKey (KeyCode.UpArrow);
 		
 		// apply horizontal speed smoothing it
 		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
