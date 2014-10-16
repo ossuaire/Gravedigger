@@ -58,21 +58,19 @@ Crypt 1: Excalibur
 A old rusty broken shovel is of no help against demonic darkspawn. Knowingly,
 Gravedigger starts by searching Excalibur, the legendary sword. He knows that
 his heart is pure enough to hold this sacred relic. The first crypt is dark
-and full of traps. Gravedigger must use all his deterity to overcome these
+and full of traps. Gravedigger must use all his dexterity to overcome these
 sneaky and pernicious pitfalls. Nevertheless, such dangers can only mean one
 thing: Excalibur is real.
 
-Crypt 1: Alternative endings
-----------------------------
 <ul>
 <li> After succeeding to dodges all the traps and foes, Gravedigger arrives
 in front of pedestal. On its top, the mighty sword is half inside the granite 
-block. The scene is enlightened by a tiny crack in the wall. Faeries slowly fly
+block. The scene is enlightened by a tiny crack in the wall. Pixies slowly fly
 around the shank of the sword following the peaceful rhythm of the music.
 Gravedigger approaches of the sword and pull it off to realize that... The
 blade of the sword was not half hidden inside the block: it is only a shovel.
 Yet, it is a mighty enchanted shovel!</li>
-<li> Adter succeeding to dodges all the traps and foes, Gravedigger arrives
+<li> After succeeding to dodges all the traps and foes, Gravedigger arrives
 in front of a moribund. The latter whispers "save the princess..." and faints.
 At his side, a brand new glowing shovel is lying. </li>
 </ul>
