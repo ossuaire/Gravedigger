@@ -108,6 +108,8 @@ public class GravediggerBis : MonoBehaviour
 			} else if (jumpTime > 0) {
 				_velocity.y = Mathf.Sqrt (2f * jumpHeight * -gravity);
 			}
+		} else {
+			jumpTime = 0;
 		}
 		
 		
