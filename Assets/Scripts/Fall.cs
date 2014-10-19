@@ -16,7 +16,7 @@ public class Fall : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.CompareTag ("GD"))
-			Application.LoadLevel ("SandboxDriz");
+			Application.LoadLevel (Application.loadedLevelName);
 		else
 			Destroy (other.gameObject);
 	}
