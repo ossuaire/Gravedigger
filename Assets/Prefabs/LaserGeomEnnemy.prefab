@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 61: {fileID: 6100000}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Weapons
   m_Icon: {fileID: 0}
@@ -28,8 +28,8 @@ GameObject:
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
   - 50: {fileID: 5000000}
-  m_Layer: 11
-  m_Name: LaserGeom
+  m_Layer: 10
+  m_Name: LaserGeomEnnemy
   m_TagString: Weapons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,8 +54,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.0275207758, z: 0}
-  m_LocalScale: {x: .75, y: .0299999993, z: .600000024}
+  m_LocalPosition: {x: 0, y: .239521146, z: 0}
+  m_LocalScale: {x: .75, y: .100000001, z: .600000024}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 0}
@@ -124,8 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203ea44ce792ae144853160069b6fda6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  laserColor: {r: .721568644, g: .0431372561, b: .549019635, a: 1}
+  speed: 10
+  killGD: 1
+  laserColor: {r: .122677498, g: .721568644, b: .0431372672, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

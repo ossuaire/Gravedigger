@@ -4,6 +4,7 @@ using System.Collections;
 public class LaserIA : MonoBehaviour {
 
 	public float speed = 10.0f;
+	public bool killGD;
 	public Color laserColor = new Color (184f/255f, 11f/255f, 140f/255f);
 
 	void Update () {
@@ -12,13 +13,17 @@ public class LaserIA : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log ("triger");
+		Debug.Log ("trigerLAser " + other.gameObject.tag);
 		if (other.gameObject.CompareTag ("Ennemy")) {
-			LifeManager lf =  other.gameObject.GetComponent<LifeManager>();
-			lf.hit();
+				LifeManager lf = other.gameObject.GetComponent<LifeManager> ();
+				lf.hit ();
 
-			PushBack pb = other.gameObject.GetComponent<PushBack>();
-			pb.push();
+				PushBack pb = other.gameObject.GetComponent<PushBack> ();
+				pb.push ();
+		} else {
+				if (killGD && other.gameObject.CompareTag ("GD")) {
+				Application.LoadLevel (Application.loadedLevelName);
+				}
 		}
 		GameObject.Destroy (this.gameObject);
 	}
