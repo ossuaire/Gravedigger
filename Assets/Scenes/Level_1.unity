@@ -811,7 +811,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1459630146}
   - 68: {fileID: 1459630147}
-  - 68: {fileID: 1459630148}
   m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
@@ -825,8 +824,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1459630145}
-  m_LocalRotation: {x: 0, y: 0, z: -.0873838589, w: .996174753}
-  m_LocalPosition: {x: 25.033802, y: 6.44160366, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.8761406, y: 6.44160366, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 596350571}
@@ -858,18 +857,6 @@ EdgeCollider2D:
   - {x: 12.9100475, y: -2.71223903}
   - {x: 17.9272594, y: -2.74151206}
   - {x: 17.9232502, y: -3.22652864}
---- !u!68 &1459630148
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1459630145}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Points:
-  - {x: -.5, y: 0}
-  - {x: .5, y: 0}
 --- !u!1001 &1648402252
 Prefab:
   m_ObjectHideFlags: 0

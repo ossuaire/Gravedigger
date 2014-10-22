@@ -14,15 +14,15 @@ public class LaserIA : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.CompareTag ("Ennemy")) {
-				LifeManager lf = other.gameObject.GetComponent<LifeManager> ();
-				lf.hit ();
+			LifeManager lf = other.gameObject.GetComponent<LifeManager> ();
+			lf.hit ();
 
-				PushBack pb = other.gameObject.GetComponent<PushBack> ();
-				pb.push ();
+			PushBack pb = other.gameObject.GetComponent<PushBack> ();
+			pb.push ();
 		} else {
-				if (killGD && other.gameObject.CompareTag ("GD")) {
+			if (killGD && other.gameObject.CompareTag ("GD")) {
 				Application.LoadLevel (Application.loadedLevelName);
-				}
+			}
 		}
 		GameObject.Destroy (this.gameObject);
 	}
