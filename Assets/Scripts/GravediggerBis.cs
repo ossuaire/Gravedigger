@@ -83,12 +83,12 @@ public class GravediggerBis : MonoBehaviour
 		if (!canMove) {
 			// TODO : make control at zero
 		}
-		if (Input.GetKey (KeyCode.RightArrow)) {
+		if (Input.GetAxisRaw ("Horizontal") > 0) {
 			normalizedHorizontalSpeed = 1;
 			if (transform.localScale.x < 0f) {
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 			}
-		} else if (Input.GetKey (KeyCode.LeftArrow)) {
+		} else if (Input.GetAxisRaw ("Horizontal") < 0) {
 			normalizedHorizontalSpeed = -1;
 			if (transform.localScale.x > 0f) {
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -102,8 +102,8 @@ public class GravediggerBis : MonoBehaviour
 		
 
 		jumpTime -= Time.deltaTime;
-		if (Input.GetKey (KeyCode.UpArrow) && canMove) {
-			if (_controller.isGrounded && jumpButtonReleased) {// we can only jump whilst grounded
+		if (Input.GetButton ("Jump") && canMove) {
+			if (_controller.isGrounded && jumpButtonReleased) {
 				jumpTime = jumpPressTime;
 				_velocity.y = Mathf.Sqrt (2f * jumpHeight * -gravity);
 				_animator.SetTrigger ("Jump");
@@ -113,8 +113,7 @@ public class GravediggerBis : MonoBehaviour
 		} else {
 			jumpTime = 0;
 		}
-
-		jumpButtonReleased = !Input.GetKey (KeyCode.UpArrow);
+		jumpButtonReleased = !Input.GetButton ("Jump");
 		
 		// apply horizontal speed smoothing it
 		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
@@ -135,7 +134,8 @@ public class GravediggerBis : MonoBehaviour
 
 	private void attack(){
 		attackReset -= Time.deltaTime;
-		if (Input.GetAxis ("Fire1") > 0) {
+		Debug.Log (Input.GetButton ("Fire2"));
+		if (Input.GetButton ("Fire1") ) {
 			if (attackReset <= 0 && !attackPress) {
 				_animator.SetTrigger ("Attack");
 				attackReset = attackSpeed;
@@ -150,7 +150,7 @@ public class GravediggerBis : MonoBehaviour
 				
 		shootTimer -= Time.deltaTime;
 		canMoveTimer -= Time.deltaTime;
-		if(fireButtonReleased && Input.GetAxis("Fire2")>0 && shootTimer<0){
+		if(fireButtonReleased && Input.GetButton("Fire2") && shootTimer<0){
 			shootTimer=shootCD;
 			canMoveTimer=canMoveDelay;
 			_animator.SetTrigger("Fire");
@@ -162,7 +162,7 @@ public class GravediggerBis : MonoBehaviour
 			fireButtonReleased = false;
 		}
 
-		if (!fireButtonReleased && shoot && (Input.GetAxis ("Fire2") <= 0 || particleInstance==null || !particleInstance.IsAlive())) {
+		if (!fireButtonReleased && shoot && (!Input.GetButton("Fire2") || particleInstance==null || !particleInstance.IsAlive())) {
 			canMove = true; 
 			canMoveTimer = canMoveDelay;
 			_animator.SetTrigger("Fired");
@@ -173,7 +173,7 @@ public class GravediggerBis : MonoBehaviour
 			Destroy(particleInstance.gameObject);
 			shoot = false;
 		}
-		if (Input.GetAxis ("Fire2") <= 0) {
+		if (!Input.GetButton ("Fire2")) {
 			fireButtonReleased = true;
 		}
 		if (!fireButtonReleased && shoot && canMoveTimer < 0){

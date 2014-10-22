@@ -12,7 +12,7 @@ public class DoorEvent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (ableToTrigger && Input.GetKey (KeyCode.DownArrow))
+		if (ableToTrigger && Input.GetButton ("Use"))
 			Application.LoadLevel ("SandboxDriz");
 	}
 
