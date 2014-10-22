@@ -13,7 +13,6 @@ public class LaserIA : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log ("trigerLAser " + other.gameObject.tag);
 		if (other.gameObject.CompareTag ("Ennemy")) {
 				LifeManager lf = other.gameObject.GetComponent<LifeManager> ();
 				lf.hit ();

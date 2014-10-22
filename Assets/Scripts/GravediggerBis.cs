@@ -79,7 +79,7 @@ public class GravediggerBis : MonoBehaviour
 		_velocity = _controller.velocity;
 		
 		if (_controller.isGrounded)
-			_velocity.y = 0;
+			_velocity.y = -1;
 		if (!canMove) {
 			// TODO : make control at zero
 		}
